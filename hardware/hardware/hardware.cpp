@@ -7,12 +7,41 @@
 #include <jni.h>
 #include <stdio.h>
 #include <interface.h>
+#include "bitManipulation.h"
 
 #ifndef _Included_trab1_Hardware
 #define _Included_trab1_Hardware
+
 #ifdef __cplusplus
+
 extern "C" {
 #endif
+	//***************** Bit Manipulation ****************
+	// Returns the n bit in v
+	bool getBit(uInt8 v, int n)
+	{
+		uInt8 mask = 1 << n;
+		if ((mask & v) != 0)
+			return true;
+		else return false;
+	}
+	//Sets the n bit in v to 1
+	void setBit(uInt8 &v, int n)
+	{
+		uInt8 mask = 1 << n;
+		v = v | mask;
+
+	}
+	//Resets the n bit in v to 0
+	void resetBit(uInt8 &v, int n)
+	{
+		uInt8 mask1 = 1 << n;
+		uInt8 mask2 = 0xFF - mask1;
+
+		v = v & mask2;
+	}
+	//***************** Bit Manipulation ****************
+
 	/*
 	* Class:     trab1_Hardware
 	* Method:    initialize_kit
@@ -20,10 +49,12 @@ extern "C" {
 	*/
 	JNIEXPORT void JNICALL Java_trab1_Hardware_initialize_1kit
 		(JNIEnv *, jobject){
-		create_DI_channel(port);
-		create_DI_channel(port);
-		create_DI_channel(port);
-		create_DI_channel(port);
+		create_DI_channel(4);
+		create_DI_channel(5);
+		create_DO_channel(0);
+		create_DO_channel(1);
+		create_DO_channel(2);
+		create_DO_channel(3);
 	}
 
 	/*
@@ -33,8 +64,6 @@ extern "C" {
 	*/
 	JNIEXPORT void JNICALL Java_trab1_Hardware_create_1di
 		(JNIEnv *, jobject, jint port){
-		printf("Vai fazer o codigo para comunicar!!\n");
-		printf("Put here the code for creating digital input %d", port);
 		create_DI_channel(port);
 	}
 
@@ -53,9 +82,21 @@ extern "C" {
 	* Method:    read_port
 	* Signature: (I)I
 	*/
-	JNIEXPORT jint JNICALL Java_trab1_Hardware_read_1port
-		(JNIEnv *, jobject, jint port){
-		return 1;
+	JNIEXPORT jint JNICALL Java_trab1_Hardware_read_1port(JNIEnv *, jobject, jint port)
+	{
+		uInt8 value = ReadDigitalU8(port);
+		return value;
+	}
+
+	/*
+	* Class:     trab1_Hardware
+	* Method:    readBit
+	* Signature: (II)Z
+	*/
+	JNIEXPORT jboolean JNICALL Java_trab1_Hardware_readBit(JNIEnv *, jobject, jint port, jint pos){
+		uInt8 value = ReadDigitalU8(port);
+		bool res = getBit(value, pos);
+		return res;
 	}
 
 	/*
@@ -63,9 +104,16 @@ extern "C" {
 	* Method:    move_x_left
 	* Signature: ()V
 	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1x_1left
-		(JNIEnv *, jobject){
-		
+	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1x_1left(JNIEnv *, jobject)
+	{
+		uInt8 sensor = ReadDigitalU8(1);
+		bool bit = getBit(sensor, 3);
+		if (!bit){
+			uInt8 motors = ReadDigitalU8(4);
+			resetBit(motors, 0);
+			setBit(motors, 1);
+			WriteDigitalU8(4, motors);
+		}
 	}
 
 	/*
@@ -98,7 +146,10 @@ extern "C" {
 	* Signature: ()V
 	*/
 	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1z_1up
-		(JNIEnv *, jobject);
+		(JNIEnv *, jobject){
+		uInt8 port = ReadDigitalU8(4);
+		
+	}
 
 	/*
 	* Class:     trab1_Hardware
@@ -107,7 +158,8 @@ extern "C" {
 	*/
 	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1z_1down
 		(JNIEnv *, jobject){
-		WriteDigitalU8(4, 0x20);
+
+		WriteDigitalU8(4, 0x40);
 	}
 
 	/*
@@ -116,7 +168,14 @@ extern "C" {
 	* Signature: ()V
 	*/
 	JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1x
-		(JNIEnv *, jobject);
+		(JNIEnv *, jobject)
+	{
+		uInt8 motors = ReadDigitalU8(4);
+		resetBit(motors, 0);
+		resetBit(motors, 1);
+		WriteDigitalU8(4, motors);
+
+	}
 
 	/*
 	* Class:     trab1_Hardware
@@ -141,8 +200,10 @@ extern "C" {
 	*/
 	JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1emergency
 		(JNIEnv *, jobject);
+	
 
 #ifdef __cplusplus
 }
+
 #endif
 #endif

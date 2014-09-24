@@ -1,4 +1,4 @@
-﻿Build started 24/09/2014 14:33:53.
+﻿Build started 25/09/2014 00:09:37.
      1>Project "C:\dev\SI\hardware\hardware\hardware.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\dev\SI\SI_Interface /I"C:\Program Files\Java\jdk1.8.0_20\include\win32" /I"C:\Program Files\Java\jdk1.8.0_20\include" /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D HARDWARE_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt hardware.cpp
@@ -9,10 +9,9 @@
          x64\Debug\hardware.obj
          x64\Debug\stdafx.obj
          ..\..\SI_Interface\nidaqmx64.lib
-            Creating library C:\dev\SI\hardware\x64\Debug\hardware.lib and object C:\dev\SI\hardware\x64\Debug\hardware.exp
          hardware.vcxproj -> C:\dev\SI\hardware\x64\Debug\hardware.dll
      1>Done Building Project "C:\dev\SI\hardware\hardware\hardware.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.76
+Time Elapsed 00:00:00.86

@@ -23,6 +23,8 @@ public class Hardware {
     native public void create_do(int port);
 
     native public int read_port(int port);
+
+    native public boolean readBit(int port, int pos);
     
     native public void move_x_left();
     

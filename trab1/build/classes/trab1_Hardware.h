@@ -41,6 +41,14 @@ JNIEXPORT jint JNICALL Java_trab1_Hardware_read_1port
 
 /*
  * Class:     trab1_Hardware
+ * Method:    readBit
+ * Signature: (II)Z
+ */
+JNIEXPORT jboolean JNICALL Java_trab1_Hardware_readBit
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     trab1_Hardware
  * Method:    move_x_left
  * Signature: ()V
  */

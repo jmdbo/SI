@@ -18,7 +18,8 @@ public class Trab1 {
         // TODO code application logic here
         System.out.println("Ola....");
         Hardware h = new Hardware();
-        h.create_di(0);
+        h.initialize_kit();
+        h.move_x_left();
     }
     
 }
