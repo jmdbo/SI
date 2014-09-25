@@ -20,7 +20,6 @@ extern "C" {
 	// Returns the n bit in v
 	bool getBit(uInt8 v, int n)
 	{
-
 		uInt8 mask = 1 << n;
 		if ((mask & v) != 0)
 			return true;
