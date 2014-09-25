@@ -11,6 +11,10 @@ package trab1;
  */
 public class Hardware {
 
+    public Hardware(){
+        initialize_kit();
+    }
+
     static{
         //C:\dev\SI\hardware\x64\Debug\hardware.dll
         System.load("C:\\dev\\SI\\hardware\\x64\\Debug\\hardware.dll");
