@@ -142,11 +142,9 @@ extern "C" {
 	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1y_1in(JNIEnv *, jobject)
 	{
 		uInt8 sensor = ReadDigitalU8(1);
-		//Middle sensor
-		bool bit1 = getBit(sensor, 3);
-		//Out sensor
-		bool bit2 = getBit(sensor, 2);
-		if (!bit1 || !bit2){
+		//In sensor
+		bool bit1 = getBit(sensor, 4);
+		if (bit1){
 			uInt8 motors = ReadDigitalU8(4);
 			resetBit(motors, 3);
 			setBit(motors, 4);
@@ -162,14 +160,13 @@ extern "C" {
 	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1y_1out(JNIEnv *, jobject)
 	{
 		uInt8 sensor = ReadDigitalU8(1);
-		//Middle sensor
-		bool bit1 = getBit(sensor, 3);
-		//In sensor
-		bool bit2 = getBit(sensor, 4);
-		if (!bit1 || !bit2){
+		//out sensor
+		bool bit1 = getBit(sensor, 2);
+
+		if (bit1){
 			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 3);
-			setBit(motors, 4);
+			resetBit(motors, 4);
+			setBit(motors, 3);
 			WriteDigitalU8(4, motors);
 		}
 	}
@@ -188,8 +185,8 @@ extern "C" {
 		bool bit2 = getBit(sensor, 4);
 		if (!bit1 || !bit2){
 			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 5);
-			setBit(motors, 6);
+			resetBit(motors, 6);
+			setBit(motors, 5);
 			WriteDigitalU8(4, motors);
 		}
 		
@@ -209,8 +206,8 @@ extern "C" {
 		bool bit2 = getBit(sensor, 4);
 		if (!bit1 || !bit2){
 			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 6);
-			setBit(motors, 5);
+			resetBit(motors, 5);
+			setBit(motors, 6);
 			WriteDigitalU8(4, motors);
 		}
 	}
