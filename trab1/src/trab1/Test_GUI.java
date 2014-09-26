@@ -30,12 +30,9 @@ public class Test_GUI {
         upButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
                 h.move_z_up();
             }
         });
-
-
         leftButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
