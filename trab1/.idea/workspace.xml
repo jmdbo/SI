@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1db486a-8408-4015-9ef0-181f3a879dc2" name="Default" comment="Rejected commit: Default">
+    <list default="true" id="d1db486a-8408-4015-9ef0-181f3a879dc2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="trab1.iws" />
@@ -374,7 +374,11 @@
       <created>1411666275179</created>
       <updated>1411666275179</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rejected commit: Default">
+      <created>1412082153703</created>
+      <updated>1412082153703</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
