@@ -3,7 +3,7 @@ package trab1;
 /**
  * Created by Joao on 30/09/2014.
  */
-public class threadUpdater extends Thread {
+public class threadUpdater implements Runnable {
 
     private int[] ports;
     private Hardware h;
@@ -24,5 +24,10 @@ public class threadUpdater extends Thread {
         ports[3] =  h.read_port(3);
         ports[4] =  h.read_port(4);
         ports[5] =  h.read_port(5);
+        try {
+            Thread.sleep(100);
+        }catch (Exception e ){
+            System.out.println("hello");
+        }
     }
 }
