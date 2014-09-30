@@ -23,11 +23,8 @@ public class Test_GUI {
     private JPanel gui_frame;
     private JButton resetCOMButton;
 
-    private boolean threadSuspended;
-
     public Test_GUI() {
         final Hardware h = new Hardware();
-
 
 
         upButton.addActionListener(new ActionListener() {
@@ -75,7 +72,6 @@ public class Test_GUI {
         stopYButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
                 h.stop_y();
             }
         });
@@ -94,11 +90,7 @@ public class Test_GUI {
         resetCOMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
-                threadSuspended = !threadSuspended;
-
-                if (!threadSuspended)
-                    notify();
+                h.initialize_kit();
             }
         });
     }
