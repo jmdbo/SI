@@ -24,6 +24,7 @@ public class Test_GUI {
     private JButton resetCOMButton;
 
     private boolean threadSuspended;
+    private test t;
 
     public Test_GUI() {
         final Hardware h = new Hardware();
@@ -94,11 +95,9 @@ public class Test_GUI {
         resetCOMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                t = new test();
+                t.run();
 
-                threadSuspended = !threadSuspended;
-
-                if (!threadSuspended)
-                    notify();
             }
         });
     }
