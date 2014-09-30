@@ -8,6 +8,7 @@ package trab1;
 /**
  *
  * @author João Barata Oliveira
+ * @author João Aires
  */
 public class Hardware {
 
