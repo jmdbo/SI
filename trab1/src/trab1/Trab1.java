@@ -16,7 +16,7 @@ public class Trab1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Ola....");
+        System.out.println("Ola.54...");
         Hardware h = new Hardware();
         h.initialize_kit();
         h.move_x_left();
