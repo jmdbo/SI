@@ -95,8 +95,7 @@ public class Test_GUI {
         resetCOMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                t = new test();
-                t.run();
+                System.out.println();
 
             }
         });
