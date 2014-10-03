@@ -22,32 +22,11 @@ public class Hardware {
 
     native public void initialize_kit();
 
-    native public void create_di(int port);
-
-    native public void create_do(int port);
-
-    native public int read_port(int port);
-
-    native public boolean readBit(int port, int pos);
-    
-    native public void move_x_left();
-    
-    native public void move_x_right();    
-    
-    native public void move_y_in();
-    
-    native public void move_y_out();
-    
-    native public void move_z_up();
-    
-    native public void move_z_down();
-        
-    native public void stop_x();
-    
-    native public void stop_y();
-    
-    native public void stop_z();
-    
-    native public void stop_emergency();    
+    native public void setBit (int port, int bit);
+    native public void resetBit(int port, int bit);
+    native public boolean readBit(int port, int bit);
+    /***************************************************************************/
+    native public int readPort (int port);
+    native public void writePort (int port, int value);
     
 }

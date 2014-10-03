@@ -13,31 +13,23 @@ extern "C" {
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_trab1_Hardware_initialize_1kit
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject);//CERTO
 
 /*
  * Class:     trab1_Hardware
- * Method:    create_di
- * Signature: (I)V
+ * Method:    setBit
+ * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_trab1_Hardware_create_1di
-  (JNIEnv *, jobject, jint);
+JNIEXPORT void JNICALL Java_trab1_Hardware_setBit
+  (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     trab1_Hardware
- * Method:    create_do
- * Signature: (I)V
+ * Method:    resetBit
+ * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_trab1_Hardware_create_1do
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     trab1_Hardware
- * Method:    read_port
- * Signature: (I)I
- */
-JNIEXPORT jint JNICALL Java_trab1_Hardware_read_1port
-  (JNIEnv *, jobject, jint);
+JNIEXPORT void JNICALL Java_trab1_Hardware_resetBit
+  (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     trab1_Hardware
@@ -49,83 +41,19 @@ JNIEXPORT jboolean JNICALL Java_trab1_Hardware_readBit
 
 /*
  * Class:     trab1_Hardware
- * Method:    move_x_left
- * Signature: ()V
+ * Method:    readPort
+ * Signature: (I)I
  */
-JNIEXPORT void JNICALL Java_trab1_Hardware_move_1x_1left
-  (JNIEnv *, jobject);
+JNIEXPORT jint JNICALL Java_trab1_Hardware_readPort
+  (JNIEnv *, jobject, jint);
 
 /*
  * Class:     trab1_Hardware
- * Method:    move_x_right
- * Signature: ()V
+ * Method:    writePort
+ * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_trab1_Hardware_move_1x_1right
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    move_y_in
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_move_1y_1in
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    move_y_out
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_move_1y_1out
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    move_z_up
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_move_1z_1up
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    move_z_down
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_move_1z_1down
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    stop_x
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1x
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    stop_y
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1y
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    stop_z
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1z
-  (JNIEnv *, jobject);
-
-/*
- * Class:     trab1_Hardware
- * Method:    stop_emergency
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1emergency
-  (JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_trab1_Hardware_writePort
+  (JNIEnv *, jobject, jint, jint);
 
 #ifdef __cplusplus
 }

@@ -19,7 +19,12 @@ public class Trab1 {
         System.out.println("Ola....");
         Hardware h = new Hardware();
         h.initialize_kit();
-        h.move_x_left();
+        BufferData bufferData = new BufferData(h);
+        Dispatcher d = new Dispatcher(bufferData);
+        new Thread(d).start();
+        d.queue.add(new Command("trab1.GotoPosition", 2,2,false));
+
+        //h.move_x_left();
     }
     
 }

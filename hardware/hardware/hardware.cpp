@@ -16,32 +16,6 @@
 
 extern "C" {
 #endif
-	//***************** Bit Manipulation ****************
-	// Returns the n bit in v
-	bool getBit(uInt8 v, int n)
-	{
-		uInt8 mask = 1 << n;
-		if ((mask & v) != 0)
-			return true;
-		else return false;
-	}
-	//Sets the n bit in v to 1
-	void setBit(uInt8 &v, int n)
-	{
-		uInt8 mask = 1 << n;
-		v = v | mask;
-
-	}
-	//Resets the n bit in v to 0
-	void resetBit(uInt8 &v, int n)
-	{
-		uInt8 mask1 = 1 << n;
-		uInt8 mask2 = 0xFF - mask1;
-
-		v = v & mask2;
-	}
-	//***************** Bit Manipulation ****************
-
 	/*
 	* Class:     trab1_Hardware
 	* Method:    initialize_kit
@@ -56,36 +30,31 @@ extern "C" {
 		create_DO_channel(2);
 		create_DO_channel(3);
 	}
-
 	/*
 	* Class:     trab1_Hardware
-	* Method:    create_di
-	* Signature: (I)V
+	* Method:    setBit
+	* Signature: (II)V
 	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_create_1di(JNIEnv *, jobject, jint port)
-	{
-		create_DI_channel(port);
+	JNIEXPORT void JNICALL Java_trab1_Hardware_setBit(JNIEnv *, jobject, jint port, jint n){
+		uInt8 v = ReadDigitalU8(port);
+		uInt8 mask = 1 << n;
+		v = v | mask;
+		WriteDigitalU8(port, v);
 	}
 
 	/*
 	* Class:     trab1_Hardware
-	* Method:    create_do
-	* Signature: (I)V
+	* Method:    resetBit
+	* Signature: (II)V
 	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_create_1do(JNIEnv *, jobject, jint port)
-	{
-		create_DO_channel(port);
-	}
+	JNIEXPORT void JNICALL Java_trab1_Hardware_resetBit(JNIEnv *, jobject, jint port, jint n){
+		uInt8 v = ReadDigitalU8(port);
+		uInt8 mask1 = 1 << n;
+		uInt8 mask2 = 0xFF - mask1;
 
-	/*
-	* Class:     trab1_Hardware
-	* Method:    read_port
-	* Signature: (I)I
-	*/
-	JNIEXPORT jint JNICALL Java_trab1_Hardware_read_1port(JNIEnv *, jobject, jint port)
-	{
-		uInt8 value = ReadDigitalU8(port);
-		return value;
+		v = v & mask2;
+		WriteDigitalU8(port, v);
+
 	}
 
 	/*
@@ -93,182 +62,34 @@ extern "C" {
 	* Method:    readBit
 	* Signature: (II)Z
 	*/
-	JNIEXPORT jboolean JNICALL Java_trab1_Hardware_readBit(JNIEnv *, jobject, jint port, jint pos)
+	JNIEXPORT jboolean JNICALL Java_trab1_Hardware_readBit(JNIEnv *, jobject, jint port, jint bit){
+		uInt8 v;
+		v = ReadDigitalU8(port);
+		uInt8 mask = 1 << bit;
+		if ((mask & v) != 0)
+			return true;
+		else return false;
+	}
+
+
+	/*
+	* Class:     trab1_Hardware
+	* Method:    read_port
+	* Signature: (I)I
+	*/
+	JNIEXPORT jint JNICALL Java_trab1_Hardware_readPort(JNIEnv *, jobject, jint port)
 	{
 		uInt8 value = ReadDigitalU8(port);
-		bool res = getBit(value, pos);
-		return res;
+		return value;
 	}
 
 	/*
 	* Class:     trab1_Hardware
-	* Method:    move_x_left
-	* Signature: ()V
+	* Method:    writePort
+	* Signature: (II)V
 	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1x_1left(JNIEnv *, jobject)
-	{
-		uInt8 sensor = ReadDigitalU8(1);
-		bool bit = getBit(sensor, 3);
-		if (!bit){
-			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 0);
-			setBit(motors, 1);
-			WriteDigitalU8(4, motors);
-		}
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    move_x_right
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1x_1right(JNIEnv *, jobject)
-	{
-		uInt8 sensor = ReadDigitalU8(1);
-		bool bit = getBit(sensor, 3);
-		if (!bit){
-			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 1);
-			setBit(motors, 0);
-			WriteDigitalU8(4, motors);
-		}
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    move_y_in
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1y_1in(JNIEnv *, jobject)
-	{
-		uInt8 sensor = ReadDigitalU8(1);
-		//In sensor
-		bool bit1 = getBit(sensor, 4);
-		if (bit1){
-			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 3);
-			setBit(motors, 4);
-			WriteDigitalU8(4, motors);
-		}
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    move_y_out
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1y_1out(JNIEnv *, jobject)
-	{
-		uInt8 sensor = ReadDigitalU8(1);
-		//out sensor
-		bool bit1 = getBit(sensor, 2);
-
-		if (bit1){
-			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 4);
-			setBit(motors, 3);
-			WriteDigitalU8(4, motors);
-		}
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    move_z_up
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1z_1up(JNIEnv *, jobject)
-	{
-		uInt8 sensor = ReadDigitalU8(1);
-		//Middle sensor
-		bool bit1 = getBit(sensor, 3);
-		//In sensor
-		bool bit2 = getBit(sensor, 4);
-		if (!bit1 || !bit2){
-			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 6);
-			setBit(motors, 5);
-			WriteDigitalU8(4, motors);
-		}
-		
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    move_z_down
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_move_1z_1down(JNIEnv *, jobject)
-	{
-		uInt8 sensor = ReadDigitalU8(1);
-		//Middle sensor
-		bool bit1 = getBit(sensor, 3);
-		//In sensor
-		bool bit2 = getBit(sensor, 4);
-		if (!bit1 || !bit2){
-			uInt8 motors = ReadDigitalU8(4);
-			resetBit(motors, 5);
-			setBit(motors, 6);
-			WriteDigitalU8(4, motors);
-		}
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    stop_x
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1x
-		(JNIEnv *, jobject)
-	{
-		uInt8 motors = ReadDigitalU8(4);
-		resetBit(motors, 0);
-		resetBit(motors, 1);
-		WriteDigitalU8(4, motors);
-
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    stop_y
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1y(JNIEnv *, jobject)
-	{
-		uInt8 motors = ReadDigitalU8(4);
-		resetBit(motors, 3);
-		resetBit(motors, 4);
-		WriteDigitalU8(4, motors);
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    stop_z
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1z
-		(JNIEnv *, jobject)
-	{
-		uInt8 motors = ReadDigitalU8(4);
-		resetBit(motors, 6);
-		resetBit(motors, 5);
-		WriteDigitalU8(4, motors);
-	}
-
-	/*
-	* Class:     trab1_Hardware
-	* Method:    stop_emergency
-	* Signature: ()V
-	*/
-	JNIEXPORT void JNICALL Java_trab1_Hardware_stop_1emergency(JNIEnv *, jobject)
-	{
-		uInt8 motors = ReadDigitalU8(4);
-		uInt8 result = 0x0;
-		bool slow = getBit(motors, 2);
-		if (slow){
-			setBit(result, 2);
-		}
-		WriteDigitalU8(4, result);
-		WriteDigitalU8(5, 0x0);
+	JNIEXPORT void JNICALL Java_trab1_Hardware_writePort(JNIEnv *, jobject, jint port, jint value){
+		WriteDigitalU8(port, (uInt8)value);
 	}
 	
 
