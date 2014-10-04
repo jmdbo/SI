@@ -94,6 +94,17 @@ public class BufferData {
         }
     }
 
+    public void moveY(int direction){
+        if(direction>0){
+            bits[4][4] = true;
+            bits[4][3] = false;
+        }
+        if(direction<0){
+            bits[4][3] = true;
+            bits[4][4] = false;
+        }
+    }
+
     public void stopZ(){
         bits[4][5]=false;
         bits[4][6]=false;
@@ -104,5 +115,22 @@ public class BufferData {
         bits[4][0]=false;
     }
 
+    public void stopY(){
+        bits[4][3] = false;
+        bits[4][4] = false;
+    }
 
+
+    public int gety() {
+        if(!bits[1][2]){
+            return 0;
+        }
+        if(!bits[1][3]){
+            return 1;
+        }
+        if (!bits[1][4]){
+            return 2;
+        }
+        return -1;
+    }
 }

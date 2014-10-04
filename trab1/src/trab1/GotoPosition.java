@@ -60,11 +60,48 @@ public class GotoPosition extends Action {
 
     private void calibrate(){
         boolean inPosition=false;
-        buffer.moveXZ(-1, -1);
+        boolean inPositionY=false;
+        int dir_x=0;
+        int dir_z=0;
+
+        if(buffer.gety()==-1 || buffer.gety()==2){
+            buffer.moveY(-1);
+        }else if (buffer.gety()==0){
+            buffer.moveY(1);
+        }
+
+        while(!inPositionY){
+            if(buffer.gety()==1){
+                buffer.stopY();
+                inPositionY = true;
+            } if(buffer.gety()==0){
+                buffer.moveY(1);
+            }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(buffer.getx()!=0){
+            dir_x=-1;
+        }
+        if(buffer.getz()!=0){
+            dir_z=-1;
+        }
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        buffer.moveXZ( dir_x, dir_z);
+
         while(!inPosition){
             int getX =buffer.getx();
             int getPut =buffer.getPut();
             int getZ = buffer.getz();
+            int getY = buffer.gety();
             if(buffer.getx()==0){
                 buffer.stopX();
             }
