@@ -24,7 +24,6 @@ public abstract class Action implements Runnable {
             e.printStackTrace();
         }
         bd.actionOn = false;
-
     }
 
     protected abstract void doAction() throws InterruptedException;

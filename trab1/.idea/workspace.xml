@@ -2,55 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1db486a-8408-4015-9ef0-181f3a879dc2" name="Default" comment="Rejected commit: Default">
-      <change type="DELETED" beforePath="C:\dev\SI\hardware\hardware\x64\Debug\bitmanipulation.obj" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$10.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$11.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$6.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$7.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$8.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\Test_GUI$9.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab1\src\trab1\hardwareThread.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/trab1/Test_GUIv2.form" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/trab1/Test_GUIv2.java" />
+      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\demo\Action.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\demo\dispatcher.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\demo\gotoxz.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\demo\main.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\KitAccess.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\dev\SI\trab1\build\classes\trab1\hardwareThread.class" afterPath="" />
       <change type="MOVED" beforePath="C:\dev\SI\trab1\build\classes\trab1\dispatcher.class" afterPath="$PROJECT_DIR$/build/classes/trab1/Dispatcher.class" />
-      <change type="MOVED" beforePath="C:\dev\SI\trab1\build\classes\trab1\hardwareThread.class" afterPath="$PROJECT_DIR$/build/classes/trab1/HardwareThread.class" />
       <change type="MOVED" beforePath="C:\dev\SI\trab1\src\trab1\dispatcher.java" afterPath="$PROJECT_DIR$/src/trab1/Dispatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/Hardware.class" afterPath="$PROJECT_DIR$/build/classes/trab1/Hardware.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/Test_GUI.class" afterPath="$PROJECT_DIR$/build/classes/trab1/Test_GUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/Action.class" afterPath="$PROJECT_DIR$/build/classes/trab1/Action.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/BufferData.class" afterPath="$PROJECT_DIR$/build/classes/trab1/BufferData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/GotoPosition.class" afterPath="$PROJECT_DIR$/build/classes/trab1/GotoPosition.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/Trab1.class" afterPath="$PROJECT_DIR$/build/classes/trab1/Trab1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/dllmain.obj" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/dllmain.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.dll" afterPath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.dll" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.exp" afterPath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.exp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.ilk" afterPath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.ilk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.obj" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.pch" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.pch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.pdb" afterPath="$PROJECT_DIR$/../hardware/x64/Debug/hardware.pdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware.sdf" afterPath="$PROJECT_DIR$/../hardware/hardware.sdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware.v12.suo" afterPath="$PROJECT_DIR$/../hardware/hardware.v12.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/interface.obj" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/interface.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/link.command.1.tlog" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/link.command.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/link.write.1.tlog" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/link.write.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/stdafx.obj" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/stdafx.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/vc120.idb" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/vc120.idb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/vc120.pdb" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/vc120.pdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/CL.read.1.tlog" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/CL.read.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/CL.write.1.tlog" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/CL.write.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Hardware.java" afterPath="$PROJECT_DIR$/src/trab1/Hardware.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Test_GUI.java" afterPath="$PROJECT_DIR$/src/trab1/Test_GUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/Updater.class" afterPath="$PROJECT_DIR$/build/classes/trab1/Updater.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Action.java" afterPath="$PROJECT_DIR$/src/trab1/Action.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/BufferData.java" afterPath="$PROJECT_DIR$/src/trab1/BufferData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Command.java" afterPath="$PROJECT_DIR$/src/trab1/Command.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/GotoPosition.java" afterPath="$PROJECT_DIR$/src/trab1/GotoPosition.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Trab1.java" afterPath="$PROJECT_DIR$/src/trab1/Trab1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/cl.command.1.tlog" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/cl.command.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.Build.CppClean.log" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.Build.CppClean.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/hardware.cpp" afterPath="$PROJECT_DIR$/../hardware/hardware/hardware.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/hardware.lastbuildstate" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/hardware.lastbuildstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.log" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/hardware.write.1u.tlog" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/hardware.write.1u.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/link.read.1.tlog" afterPath="$PROJECT_DIR$/../hardware/hardware/x64/Debug/hardware.tlog/link.read.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TutorialSI/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/../TutorialSI/nbproject/private/private.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1_Hardware.h" afterPath="$PROJECT_DIR$/build/classes/trab1_Hardware.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Updater.java" afterPath="$PROJECT_DIR$/src/trab1/Updater.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="trab1.iws" />
@@ -82,28 +55,18 @@
       <file leaf-file-name="BufferData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/BufferData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.12" vertical-offset="510" max-vertical-offset="1666">
-              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1533" max-vertical-offset="1938">
+              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Action.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/trab1/Action.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-              <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GotoPosition.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GotoPosition.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/trab1/GotoPosition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5163399" vertical-offset="579" max-vertical-offset="1530">
+              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -112,13 +75,9 @@
       <file leaf-file-name="Dispatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Dispatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="1173">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1711#1712#0" expanded="true" />
-                <element signature="e#1742#1743#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1139">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,40 +85,65 @@
       <file leaf-file-name="Trab1.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Trab1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="595">
+              <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test_GUI.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.java">
+      <file leaf-file-name="Hardware.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trab1/Hardware.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2159">
-              <caret line="100" column="42" selection-start-line="97" selection-start-column="20" selection-end-line="100" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="544">
+              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test_GUIv2.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUIv2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test_GUIv2.form" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUIv2.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Command.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-              <folding>
-                <element signature="e#427#428#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Updater.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Updater.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Updater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6296296" vertical-offset="0" max-vertical-offset="1326">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="1411">
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Thread.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_20/jre/lib/rt.jar!/java/lang/Thread.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2427" max-vertical-offset="4250">
+              <caret line="151" column="35" selection-start-line="151" selection-start-column="35" selection-end-line="151" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -191,15 +175,16 @@
         <option value="$PROJECT_DIR$/src/demo/main.java" />
         <option value="$PROJECT_DIR$/src/demo/Action.java" />
         <option value="$PROJECT_DIR$/src/demo/dispatcher.java" />
-        <option value="$PROJECT_DIR$/src/trab1/Updater.java" />
         <option value="$PROJECT_DIR$/src/trab1/HardwareThread.java" />
         <option value="$PROJECT_DIR$/src/demo/gotoxz.java" />
-        <option value="$PROJECT_DIR$/src/trab1/Command.java" />
-        <option value="$PROJECT_DIR$/src/trab1/GotoPosition.java" />
-        <option value="$PROJECT_DIR$/src/trab1/BufferData.java" />
-        <option value="$PROJECT_DIR$/src/trab1/Trab1.java" />
+        <option value="$PROJECT_DIR$/src/trab1/Updater.java" />
         <option value="$PROJECT_DIR$/src/trab1/Action.java" />
         <option value="$PROJECT_DIR$/src/trab1/Dispatcher.java" />
+        <option value="$PROJECT_DIR$/src/trab1/Command.java" />
+        <option value="$PROJECT_DIR$/src/trab1/Test_GUIv2.form" />
+        <option value="$PROJECT_DIR$/src/trab1/Trab1.java" />
+        <option value="$PROJECT_DIR$/src/trab1/BufferData.java" />
+        <option value="$PROJECT_DIR$/src/trab1/GotoPosition.java" />
       </list>
     </option>
   </component>
@@ -238,6 +223,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -255,6 +241,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="trab1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trab1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trab1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trab1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test_GUIv2" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -299,7 +307,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -659,7 +666,8 @@
       <workItem from="1412163172584" duration="15487000" />
       <workItem from="1412260717337" duration="6008000" />
       <workItem from="1412335488248" duration="152000" />
-      <workItem from="1412343539125" duration="8089000" />
+      <workItem from="1412343539125" duration="16202000" />
+      <workItem from="1412381592935" duration="2629000" />
     </task>
     <task id="LOCAL-00001" summary="GUI development">
       <created>1411666227941</created>
@@ -677,7 +685,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51997000" />
+    <option name="totallyTimeSpent" value="62739000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -710,7 +718,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259053" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3986111" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -722,7 +730,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25930682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25930682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32451254" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27792042" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -743,8 +751,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25738126" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32451254" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25930682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32451254" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -752,7 +760,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259053" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259053" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -782,15 +790,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/trab1/GotoPosition.java</url>
-          <line>12</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="34" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -798,6 +798,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/trab1/Updater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1411">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/build/classes/trab1_Hardware.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2363">
@@ -1073,24 +1081,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Hardware.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="544">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#427#428#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2159">
@@ -1099,54 +1089,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/BufferData.java">
+    <entry file="file://$PROJECT_DIR$/src/trab1/Action.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.12" vertical-offset="510" max-vertical-offset="1666">
-          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="629">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUIv2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="289">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUIv2.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="527">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trab1/Trab1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Action.java">
+    <entry file="file://$PROJECT_DIR$/src/trab1/Hardware.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="544">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/GotoPosition.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_20/jre/lib/rt.jar!/java/lang/Thread.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2427" max-vertical-offset="4250">
+          <caret line="151" column="35" selection-start-line="151" selection-start-column="35" selection-end-line="151" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trab1/Dispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="1173">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1742#1743#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1139">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/BufferData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1533" max-vertical-offset="1938">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trab1/Updater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6296296" vertical-offset="0" max-vertical-offset="1326">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="1411">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/GotoPosition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5163399" vertical-offset="579" max-vertical-offset="1530">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
           <folding />
         </state>
       </provider>

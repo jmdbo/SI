@@ -19,6 +19,7 @@ public class Updater extends Thread {
     public void run(){
         running = true;
         while(running) {
+            //Check for changes
             for (int i = 0; i < 6; i++) {
                 boolean writeBits=false;
                 for (int j = 0; j < 8 ; j++) {
@@ -26,11 +27,13 @@ public class Updater extends Thread {
                         writeBits=true;
                     }
                 }
+                //If there are changes write them to the port
                 if(writeBits){
                     int portValue = getByte(b.bits[i]);
                     h.writePort(i,portValue);
                 }
             }
+            //Reads all ports and wirtes them to the matrix bits
             for (int i = 0; i < 6; i++) {
                 int portValue=h.readPort(i);
                 for (int j = 0; j < 8 ; j++) {
@@ -47,6 +50,7 @@ public class Updater extends Thread {
 
     }
 
+    //Read a bit at a given position from V
     private boolean readBit(int v, int bit){
         int mask = 1 << bit;
         if((mask & v)!=0)
@@ -54,16 +58,17 @@ public class Updater extends Thread {
         else return false;
     }
 
+    //From a boolean vector of 8 returns an integer that represents the vector
     private int getByte(boolean[] port){
         int value = 0;
         for (int i = 0; i < 8; i++) {
             if(port[i]){
-                setBit(value, i);
+                value=setBit(value, i);
             }
         }
         return value;
     }
-
+    //Makes a bit at a given position 1
     private int setBit(int value, int bit){
         int mask = 1 << bit;
         value = value | mask;

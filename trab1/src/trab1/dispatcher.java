@@ -23,7 +23,8 @@ public class Dispatcher implements Runnable {
     public void run() {
         Command cmd;
         while(running) {
-            if((cmd = queue.poll()) != null) {
+            if((queue.peek()) != null && !bufferData.actionOn) {
+                cmd = queue.poll();
                 // process msg
                 Class c = null;
                 try {

@@ -21,12 +21,12 @@ public class BufferData {
 
     public int getx(){
         for (int i = 0; i <8; i++) {
-            if(bits[0][i]){
+            if(!bits[0][i]){
                 return i;
             }
         }
         for (int i = 0; i <2 ; i++) {
-            if(bits[1][i]){
+            if(!bits[1][i]){
                 return i+8;
             }
         }
@@ -34,16 +34,16 @@ public class BufferData {
     }
 
     public int getz(){
-        if(bits[1][5]||bits[1][6])
-            return 0;
-        if(bits[1][7] || bits[2][0])
-            return 1;
-        if(bits[2][1] || bits[2][2])
-            return 2;
-        if(bits[2][3] || bits[2][4])
-            return 3;
-        if(bits[2][5] || bits[2][6])
+        if(!bits[1][5]||!bits[1][6])
             return 4;
+        if(!bits[1][7] || !bits[2][0])
+            return 3;
+        if(!bits[2][1] || !bits[2][2])
+            return 2;
+        if(!bits[2][3] || !bits[2][4])
+            return 1;
+        if(!bits[2][5] || !bits[2][6])
+            return 0;
         return -1;
     }
     /*
@@ -52,9 +52,9 @@ public class BufferData {
     Error -1
      */
     public int getPut(){
-        if(bits[1][6]|| bits[2][0]|| bits[2][2]|| bits[2][4]|| bits[2][6])
+        if(!bits[1][6]|| !bits[2][0]|| !bits[2][2]|| !bits[2][4]|| !bits[2][6])
             return 0;
-        if(bits[1][5]|| bits[1][7]|| bits[2][1]|| bits[2][3]|| bits[2][5])
+        if(!bits[1][5]|| !bits[1][7]|| !bits[2][1]|| !bits[2][3]|| !bits[2][5])
             return 1;
         return -1;
     }
@@ -67,25 +67,41 @@ public class BufferData {
         updt.start();
     }
 
-    private int resetBit(int value,int bit){
-        int mask1 = 1 << bit;
-        int mask2 = 0xFF - mask1;
+    public void moveXZ(int directionX, int directionZ){
+        if(!bits[1][3]){
+            if(directionX > 0){
+                bits[4][0]=true;
+                bits[4][1]=false;
+            } else if(directionX < 0){
+                bits[4][1]=true;
+                bits[4][0]=false;
+            } else{
+                bits[4][1]=false;
+                bits[4][0]=false;
+            }
 
-        value = value & mask2;
-        return value;
+            if(directionZ>0){
+                bits[4][5]=true;
+                bits[4][6]=false;
+            }else if(directionZ < 0){
+                bits[4][6]=true;
+                bits[4][5]=false;
+            } else{
+                bits[4][5]=false;
+                bits[4][6]=false;
+            }
+
+        }
     }
 
-    private int setBit(int value, int bit){
-        int mask = 1 << bit;
-        value = value | mask;
-        return value;
+    public void stopZ(){
+        bits[4][5]=false;
+        bits[4][6]=false;
     }
 
-    private boolean readBit(int v, int bit){
-        int mask = 1 << bit;
-        if((mask & v)!=0)
-            return true;
-        else return false;
+    public void stopX(){
+        bits[4][1]=false;
+        bits[4][0]=false;
     }
 
 

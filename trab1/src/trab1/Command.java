@@ -7,14 +7,16 @@ public class Command {
     public String order;
 
     public int x;
-    public int y;
+    public int z;
+    public int tray;
     public boolean isGetting;
 
-    public Command(String _order, int _x, int _y, boolean _isgetting){
+    public Command(String _order, int _x, int _z, int _tray, boolean _isgetting){
         this.isGetting = isGetting;
         this.order = _order;
         this.x = _x;
-        this.y = _y;
+        this.z = _z;
+        this.tray = _tray;
     }
 
     public Command(String _order){

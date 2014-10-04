@@ -22,8 +22,7 @@ public class Trab1 {
         BufferData bufferData = new BufferData(h);
         Dispatcher d = new Dispatcher(bufferData);
         new Thread(d).start();
-        d.queue.add(new Command("trab1.GotoPosition", 2,2,false));
-
+        d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,false));
         //h.move_x_left();
     }
     
