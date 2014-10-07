@@ -23,6 +23,7 @@ public class Planner implements Runnable {
         if(plannerQueue.peek() != null){
             cmd = plannerQueue.poll();
             if(cmd.order=="putPiece"){
+                //if(bufferData.hasPiece())
 
 
             }

@@ -74,8 +74,10 @@ public class PutGet extends Action {
             }
             buffer.stopY();
 
+            Thread.sleep(5000);
+
             //GO TO ZZ BELLOW
-            buffer.moveXZ(0,-1);
+            buffer.moveXZ(-1,-1);
             while (!(buffer.getPut()==0))
             {
                 Thread.sleep(100);

@@ -85,7 +85,7 @@ public class GotoPosition extends Action {
         }
 
         if(buffer.getx()!=0){
-            dir_x=-1;
+            dir_x=-1;//-1
         }
         if(buffer.getz()!=0){
             dir_z=-1;

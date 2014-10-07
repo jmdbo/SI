@@ -46,12 +46,12 @@ public class Dispatcher implements Runnable {
                     e.printStackTrace();
                 }
                 new Thread(a).start();
-            }else{
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+            }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
         }
