@@ -14,9 +14,10 @@ package trab1;
 public class Trab1 {
 
 
-    //private static final boolean isPutting = false;
-    //private static final boolean isGetting = true;
-
+    private static final boolean ISPUTTING = false;
+    private static final boolean ISGETTING = true;
+    private static final boolean ISTRAY = true;
+    private static final boolean ISCELL = false;
 
     /**
      * @param args the command line arguments
@@ -29,17 +30,24 @@ public class Trab1 {
         BufferData bufferData = new BufferData(h);
         Dispatcher d = new Dispatcher(bufferData);
         new Thread(d).start();
-<<<<<<< HEAD
-        d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,isPutting));
-        d.queue.add(new Command("trab1.PutGet",2,2,1, isPutting));
 
+        /*
         d.queue.add(new Command("trab1.GotoPosition", 4, 4, 1,isGetting));
         d.queue.add(new Command("trab1.PutGet",4,4,1, isGetting));
-=======
-        //d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,isPutting));
-        //d.queue.add(new Command("trab1.PutGet",2,2,1, isPutting));
->>>>>>> 0277023033433af8c3cdd3e22ea84836de4ed85f
-        //h.move_x_left();
+
+        d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,isPutting));
+        d.queue.add(new Command("trab1.PutGet",2,2,1, isPutting));
+*/
+
+        //(String _order, int _x, int _z, int _tray, boolean _isGetting)
+        d.queue.add(new Command("trab1.GotoPosition", 0, 0, ISGETTING));
+        d.queue.add(new Command("trab1.PutGet", ISTRAY, ISGETTING));
+
+
+        d.queue.add(new Command("trab1.GotoPosition",4, 4, ISPUTTING));
+        d.queue.add(new Command("trab1.PutGet", ISCELL, ISPUTTING));
+
+
     }
     
 }
