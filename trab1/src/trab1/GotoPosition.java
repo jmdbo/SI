@@ -14,7 +14,7 @@ public class GotoPosition extends Action {
         this.buffer = _buff;
         this.x = cmd.x;
         this.z = cmd.z;
-        this.isGetting=cmd.isGetting;
+        this.isGetting= cmd.isGetting;
     }
     @Override
     protected void doAction() throws InterruptedException {
