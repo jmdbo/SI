@@ -23,49 +23,72 @@ public class PutGet extends Action {
         if(isGetting)
         {
             //GO TO ZZ BELLOW
+            buffer.moveXZ(0,-1);
             while (!(buffer.getPut()==0))
             {
-                buffer.moveXZ(0,-1);
+                Thread.sleep(100);
             }
+            buffer.stopZ();
+
             //Put part into Warehouse
+            buffer.moveY(1);
             while (!(buffer.gety()==2))
             {
-                buffer.moveY(1);
+                Thread.sleep(100);
             }
+            buffer.stopY();
+
             //GO TO ZZ ABOVE
+            buffer.moveXZ(0,1);
             while (!(buffer.getPut()==1))
             {
-                buffer.moveXZ(0,1);
+                Thread.sleep(100);
             }
+            buffer.stopZ();
+
             //Get part from Warehouse
             while (!(buffer.gety()==1))
             {
-                buffer.moveY(-1);
+                Thread.sleep(100);
             }
+            buffer.stopY();
         }
+
 
         //PUT IN CELL
         else
         {
             //GO TO ZZ ABOVE
+            buffer.moveXZ(0,1);
             while (!(buffer.getPut()==1))
             {
-                buffer.moveXZ(0,1);
-            }//Put part into Warehouse
+                Thread.sleep(100);
+            }
+            buffer.stopZ();
+
+            //Put part into Warehouse
+            buffer.moveY(1);
             while (!(buffer.gety()==2))
             {
-                buffer.moveY(1);
+                Thread.sleep(100);
             }
+            buffer.stopY();
+
             //GO TO ZZ BELLOW
+            buffer.moveXZ(0,-1);
             while (!(buffer.getPut()==0))
             {
-                buffer.moveXZ(0,-1);
+                Thread.sleep(100);
             }
+            buffer.stopZ();
+
             //Get part from Warehouse
+            buffer.moveY(-1);
             while (!(buffer.gety()==1))
             {
-                buffer.moveY(-1);
+                Thread.sleep(100);
             }
+            buffer.stopY();
         }
     }
 }
