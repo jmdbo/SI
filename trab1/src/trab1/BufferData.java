@@ -133,4 +133,8 @@ public class BufferData {
         }
         return -1;
     }
+
+    public boolean hasPiece(){
+        return bits[2][7];
+    }
 }
