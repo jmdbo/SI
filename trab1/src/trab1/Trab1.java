@@ -14,8 +14,8 @@ package trab1;
 public class Trab1 {
 
 
-    private static final boolean isPutting = false;
-    private static final boolean isGetting = true;
+    //private static final boolean isPutting = false;
+    //private static final boolean isGetting = true;
 
 
     /**
@@ -29,11 +29,16 @@ public class Trab1 {
         BufferData bufferData = new BufferData(h);
         Dispatcher d = new Dispatcher(bufferData);
         new Thread(d).start();
+<<<<<<< HEAD
         d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,isPutting));
         d.queue.add(new Command("trab1.PutGet",2,2,1, isPutting));
 
         d.queue.add(new Command("trab1.GotoPosition", 4, 4, 1,isGetting));
         d.queue.add(new Command("trab1.PutGet",4,4,1, isGetting));
+=======
+        //d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,isPutting));
+        //d.queue.add(new Command("trab1.PutGet",2,2,1, isPutting));
+>>>>>>> 0277023033433af8c3cdd3e22ea84836de4ed85f
         //h.move_x_left();
     }
     
