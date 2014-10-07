@@ -68,7 +68,7 @@ public class BufferData {
     }
 
     public void moveXZ(int directionX, int directionZ){
-        if(!bits[1][3]){
+        if(!bits[1][3] || directionX==0){
             if(directionX > 0){
                 bits[4][0]=true;
                 bits[4][1]=false;

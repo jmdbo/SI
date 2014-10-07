@@ -11,8 +11,8 @@ public class Command {
     public int tray;
     public boolean isGetting;
 
-    public Command(String _order, int _x, int _z, int _tray, boolean _isgetting){
-        this.isGetting = isGetting;
+    public Command(String _order, int _x, int _z, int _tray, boolean _isGetting){
+        this.isGetting = _isGetting;
         this.order = _order;
         this.x = _x;
         this.z = _z;

@@ -7,11 +7,13 @@ public class PutGet extends Action {
 
     private BufferData buffer;
     boolean isGetting;
+    Command cmd;
 
     public PutGet(Command _cmd, BufferData _buff) {
         super(_cmd, _buff);
         this.buffer = _buff;
-        this.isGetting=cmd.isGetting;
+        this.isGetting=_cmd.isGetting;
+        this.cmd = _cmd;
     }
 
     @Override
@@ -46,6 +48,7 @@ public class PutGet extends Action {
             }
             buffer.stopZ();
 
+            buffer.moveY(-1);
             //Get part from Warehouse
             while (!(buffer.gety()==1))
             {
@@ -74,10 +77,10 @@ public class PutGet extends Action {
             }
             buffer.stopY();
 
-            Thread.sleep(5000);
+            Thread.sleep(100);
 
             //GO TO ZZ BELLOW
-            buffer.moveXZ(-1,-1);
+            buffer.moveXZ(0,-1);
             while (!(buffer.getPut()==0))
             {
                 Thread.sleep(100);
