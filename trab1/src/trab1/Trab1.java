@@ -31,6 +31,9 @@ public class Trab1 {
         new Thread(d).start();
         d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,isPutting));
         d.queue.add(new Command("trab1.PutGet",2,2,1, isPutting));
+
+        d.queue.add(new Command("trab1.GotoPosition", 4, 4, 1,isGetting));
+        d.queue.add(new Command("trab1.PutGet",4,4,1, isGetting));
         //h.move_x_left();
     }
     
