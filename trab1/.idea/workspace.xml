@@ -6,9 +6,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/GotoPosition.class" afterPath="$PROJECT_DIR$/build/classes/trab1/GotoPosition.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/trab1/Test_GUIv2.class" afterPath="$PROJECT_DIR$/build/classes/trab1/Test_GUIv2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/BufferData.java" afterPath="$PROJECT_DIR$/src/trab1/BufferData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Command.java" afterPath="$PROJECT_DIR$/src/trab1/Command.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/GotoPosition.java" afterPath="$PROJECT_DIR$/src/trab1/GotoPosition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/PutGet.java" afterPath="$PROJECT_DIR$/src/trab1/PutGet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Planner.java" afterPath="$PROJECT_DIR$/src/trab1/Planner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/trab1/Trab1.java" afterPath="$PROJECT_DIR$/src/trab1/Trab1.java" />
     </list>
     <ignored path="trab1.iws" />
@@ -40,20 +38,20 @@
       <file leaf-file-name="BufferData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/BufferData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="2482">
-              <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+            <state vertical-scroll-proportion="-7.48" vertical-offset="935" max-vertical-offset="2516">
+              <caret line="66" column="25" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
               <folding>
-                <element signature="e#3118#3119#0" expanded="true" />
-                <element signature="e#3151#3152#0" expanded="true" />
+                <element signature="e#3173#3174#0" expanded="true" />
+                <element signature="e#3206#3207#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GotoPosition.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GotoPosition.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/GotoPosition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.48697916" vertical-offset="459" max-vertical-offset="2159">
+            <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2159">
               <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
@@ -63,7 +61,7 @@
       <file leaf-file-name="Dispatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Dispatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="636" max-vertical-offset="1139">
+            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1139">
               <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
@@ -73,7 +71,7 @@
       <file leaf-file-name="Action.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Action.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="629">
+            <state vertical-scroll-proportion="0.0" vertical-offset="140" max-vertical-offset="629">
               <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
               <folding />
             </state>
@@ -83,18 +81,18 @@
       <file leaf-file-name="Trab1.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Trab1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="544">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="43" max-vertical-offset="714">
+              <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Planner.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Planner.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/trab1/Planner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="799">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.44270834" vertical-offset="289" max-vertical-offset="867">
+              <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,10 +100,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test_GUIv2.form" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUIv2.form">
+      <file leaf-file-name="Test_GUI.form" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test_GUI.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2159">
+              <caret line="100" column="42" selection-start-line="97" selection-start-column="20" selection-end-line="100" selection-end-column="42" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -122,18 +130,8 @@
       <file leaf-file-name="Command.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab1/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="493">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Updater.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/trab1/Updater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1411">
-              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="55" max-vertical-offset="493">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -172,12 +170,12 @@
         <option value="$PROJECT_DIR$/src/trab1/Test_GUIv2.form" />
         <option value="$PROJECT_DIR$/src/trab1/Action.java" />
         <option value="$PROJECT_DIR$/src/trab1/Dispatcher.java" />
-        <option value="$PROJECT_DIR$/src/trab1/Planner.java" />
-        <option value="$PROJECT_DIR$/src/trab1/BufferData.java" />
-        <option value="$PROJECT_DIR$/src/trab1/Trab1.java" />
         <option value="$PROJECT_DIR$/src/trab1/Command.java" />
         <option value="$PROJECT_DIR$/src/trab1/PutGet.java" />
         <option value="$PROJECT_DIR$/src/trab1/GotoPosition.java" />
+        <option value="$PROJECT_DIR$/src/trab1/Trab1.java" />
+        <option value="$PROJECT_DIR$/src/trab1/BufferData.java" />
+        <option value="$PROJECT_DIR$/src/trab1/Planner.java" />
       </list>
     </option>
   </component>
@@ -664,7 +662,7 @@
       <workItem from="1412436516274" duration="5294000" />
       <workItem from="1412450390912" duration="874000" />
       <workItem from="1412586711346" duration="172000" />
-      <workItem from="1412678447111" duration="7170000" />
+      <workItem from="1412678447111" duration="9022000" />
     </task>
     <task id="LOCAL-00001" summary="GUI development">
       <created>1411666227941</created>
@@ -682,7 +680,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76249000" />
+    <option name="totallyTimeSpent" value="78101000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1050,18 +1048,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2159">
-          <caret line="100" column="42" selection-start-line="97" selection-start-column="20" selection-end-line="100" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/trab1/Hardware.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="544">
@@ -1098,43 +1084,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Planner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="799">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Dispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="279" max-vertical-offset="1139">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/BufferData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="2482">
-          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
-          <folding>
-            <element signature="e#3118#3119#0" expanded="true" />
-            <element signature="e#3151#3152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Trab1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/trab1/PutGet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="671" max-vertical-offset="1785">
@@ -1143,10 +1092,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/Command.java">
+    <entry file="file://$PROJECT_DIR$/src/trab1/GotoPosition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="493">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2159">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Test_GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2159">
+          <caret line="100" column="42" selection-start-line="97" selection-start-column="20" selection-end-line="100" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1159,11 +1121,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab1/GotoPosition.java">
+    <entry file="file://$PROJECT_DIR$/src/trab1/Trab1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.48697916" vertical-offset="459" max-vertical-offset="2159">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="43" max-vertical-offset="714">
+          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Dispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="279" max-vertical-offset="1139">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="55" max-vertical-offset="493">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/BufferData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.48" vertical-offset="935" max-vertical-offset="2516">
+          <caret line="66" column="25" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
+          <folding>
+            <element signature="e#3173#3174#0" expanded="true" />
+            <element signature="e#3206#3207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab1/Planner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44270834" vertical-offset="289" max-vertical-offset="867">
+          <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

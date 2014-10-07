@@ -8,6 +8,7 @@ public class BufferData {
     public boolean[][] bits;
     public boolean[][] oldBits;
     private final Updater updt;
+    public boolean errorBit;
     public final Hardware hardware;
     public boolean actionOn;
 
@@ -63,6 +64,7 @@ public class BufferData {
         this.hardware = hardware;
         bits = new boolean[6][8];
         oldBits = new boolean[6][8];
+        errorBit = false;
         updt = new Updater(this, hardware);
         updt.start();
     }
