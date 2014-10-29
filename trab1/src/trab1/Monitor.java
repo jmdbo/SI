@@ -1,4 +1,5 @@
 package trab1;
+import CLIPSJNI.Environment;
 
 /**
  * Created by João on 21/10/2014.
@@ -11,5 +12,14 @@ public class Monitor {
     }
 
     private Monitor() {
+    }
+
+    static public void main(String[] args){
+
+        Environment environment = new Environment();
+
+        environment.load("rule.CLP");
+        environment.reset();
+        System.out.println("OLA" + environment.eval("(get-defrule-list)").toString());
     }
 }
