@@ -2,7 +2,7 @@ package trab1;
 
 /**
  * Created by João Barata Oliveira on 30/09/2014.
- */
+ * */
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.*;

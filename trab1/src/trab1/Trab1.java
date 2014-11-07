@@ -29,6 +29,7 @@ public class Trab1 {
         h.initialize_kit();
         BufferData bufferData = new BufferData(h);
         Dispatcher d = new Dispatcher(bufferData);
+        Monitor monitor = new Monitor(bufferData);
         new Thread(d).start();
 
         /*

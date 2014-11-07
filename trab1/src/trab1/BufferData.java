@@ -19,7 +19,7 @@ public class BufferData {
         }
         return bits[port][bit];
     }
-
+    //return sensor number from 0 to 9th positions
     public int getx(){
         for (int i = 0; i <8; i++) {
             if(!bits[0][i]){
@@ -33,7 +33,7 @@ public class BufferData {
         }
         return -1;
     }
-
+    //return z position
     public int getz(){
         if(!bits[1][5]||!bits[1][6])
             return 4;
@@ -138,5 +138,28 @@ public class BufferData {
 
     public boolean hasPiece(){
         return bits[2][7];
+    }
+
+    //return 0 if elevator isn't in any station
+    //return 1 if elevator at left station
+    //return 2 if elevator at right station
+    public int elevatorInStation(){
+        if((getz() == 0) && (getx()== 0) && (getPut()==0))
+            return 1;
+        if((getz() == 0) && (getx()== 9) && (getPut()==0))
+            return 2;
+        return 0;
+    }
+
+
+    //return 0 if piece isn't in any station
+    //return 1 if piece at left station
+    //return 2 if piece at right station
+    public int pieceInStation(){
+        if(!bits[3][0])
+            return 1;
+        if(!bits[3][1])
+            return 2;
+        return 0;
     }
 }
