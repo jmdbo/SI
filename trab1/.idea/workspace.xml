@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1db486a-8408-4015-9ef0-181f3a879dc2" name="Default" comment="Rejected commit: Default">
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\Scsi.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\api\hardware.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\api\utils\BufferData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\api\utils\BufferDataV2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\api\utils\BufferUpdater.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\api\utils\HwByte.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\api\utils\Instruction.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\dispatcher\Dispatcher.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\dispatcher\DispatcherV2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\planner\Planner.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\planner\PlannerV2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\dev\SI\trab2\out\production\java_si\si\test.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d1db486a-8408-4015-9ef0-181f3a879dc2" name="Default" comment="Rejected commit: Default" />
     <ignored path="trab1.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,7 +71,7 @@
       <file leaf-file-name="Planner.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/trab1/Planner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28671327" vertical-offset="356" max-vertical-offset="1071">
+            <state vertical-scroll-proportion="0.30460623" vertical-offset="356" max-vertical-offset="1071">
               <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
               <folding />
             </state>
@@ -219,6 +205,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -239,7 +226,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -618,7 +604,7 @@
       <workItem from="1415712682753" duration="22000" />
       <workItem from="1415713027956" duration="4673000" />
       <workItem from="1415718132740" duration="5000" />
-      <workItem from="1415718155192" duration="4000" />
+      <workItem from="1415718155192" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="GUI development">
       <created>1411666227941</created>
@@ -636,7 +622,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87080000" />
+    <option name="totallyTimeSpent" value="87164000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -659,7 +645,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -679,10 +665,10 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25866497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32451254" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27792042" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1108,7 +1094,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trab1/Planner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28671327" vertical-offset="356" max-vertical-offset="1071">
+        <state vertical-scroll-proportion="0.30460623" vertical-offset="356" max-vertical-offset="1071">
           <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
           <folding />
         </state>
