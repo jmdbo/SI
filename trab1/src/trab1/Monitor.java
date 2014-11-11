@@ -12,6 +12,7 @@ public class Monitor {
         bufferData=_bd;
     }
     private static Monitor ourInstance = new Monitor();
+    private static Environment clips;
 
     public static Monitor getInstance() {
         return ourInstance;
@@ -21,11 +22,11 @@ public class Monitor {
 
     static public void main(String[] args){
 
-        Environment environment = new Environment();
+        clips = new Environment();
 
-        environment.load("RulesMonitor.CLP");
-        environment.reset();
-        System.out.println("OLA" + environment.eval("(get-defrule-list)").toString());
+        clips.load("RulesMonitor.CLP");
+        clips.reset();
+        System.out.println("OLA" + clips.eval("(get-defrule-list)").toString());
 
 
     }
@@ -34,22 +35,30 @@ public class Monitor {
     private boolean error_conditions (){
 
         //ERRO1
-        //(PieceInEntryStation false)
-        if ((bufferData.pieceInStation() == 0)
-        //(ElevatorAtEntryStation true)
-        & (bufferData.elevatorInStation()!=0)
-        //(LoadingFromStationToElevator true)
-        & (true)){}
+        if (bufferData.pieceInStation() == 0)
+            clips.eval("assert PieceInStation false");
+        else clips.eval("assert PieceInStation true");
+
+        if (bufferData.elevatorInStation()!=0)
+            clips.eval("assert ElevatorAtStation true");
+        else clips.eval("assert ElevatorAtStation false");
 
 
         //ERRO2
         //(PieceInElevator false)
-        if ((bufferData.hasPiece())
-        //(ElevatorLoadComplete true)
-        &(true)
-        //(LoadingFromStationToElevator true)
-        &(true)){}
+        if (bufferData.hasPiece())
+            clips.eval("assert PieceInElevator true");
+        else clips.eval("assert PieceInElevator false");
 
+
+        //ERRO 4
+        if (bufferData.hasPiece())
+            clips.eval("assert PieceInElevator true");
+        else clips.eval("assert PieceInElevator false");
+
+        if (bufferData.gety() == 2)
+            clips.eval("assert ElevatorAtCell true");
+        else clips.eval("assert ElevatorAtCell false");
 
 
 
