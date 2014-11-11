@@ -32,21 +32,13 @@ public class Trab1 {
         Monitor monitor = new Monitor(bufferData);
         new Thread(d).start();
 
-        /*
-        d.queue.add(new Command("trab1.GotoPosition", 4, 4, 1,isGetting));
-        d.queue.add(new Command("trab1.PutGet",4,4,1, isGetting));
 
-        d.queue.add(new Command("trab1.GotoPosition", 2, 2, 1,isPutting));
-        d.queue.add(new Command("trab1.PutGet",2,2,1, isPutting));
-*/
-
-        //(String _order, int _x, int _z, int _tray, boolean _isGetting)
-        d.queue.add(new Command("trab1.GotoPosition", 0, 0, ISGETTING));
-        d.queue.add(new Command("trab1.PutGet", ISTRAY, ISGETTING));
+        //d.queue.add(new Command("trab1.GotoPosition", 0, 0, ISGETTING));
+        //d.queue.add(new Command("trab1.PutGet", ISTRAY, ISGETTING));
 
 
-        d.queue.add(new Command("trab1.GotoPosition",4, 4, ISPUTTING));
-        d.queue.add(new Command("trab1.PutGet", ISCELL, ISPUTTING));
+        //d.queue.add(new Command("trab1.GotoPosition",4, 4, ISPUTTING));
+        //d.queue.add(new Command("trab1.PutGet", ISCELL, ISPUTTING));
 
 
     }

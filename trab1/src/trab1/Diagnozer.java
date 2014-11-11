@@ -2,34 +2,34 @@ package trab1;
 import CLIPSJNI.Environment;
 
 /**
- * Created by João on 21/10/2014.
+ * Created by Aires on 11-11-2014.
  */
-public class Monitor {
+public class Diagnozer {
+
 
     public static BufferData bufferData;
 
-    public Monitor(BufferData _bd){
+    public Diagnozer (BufferData _bd){
         bufferData=_bd;
     }
-    private static Monitor ourInstance = new Monitor();
     private static Environment clips;
 
-    public static Monitor getInstance() {
-        return ourInstance;
-    }
 
-    private Monitor() { }
+    private Diagnozer() { }
 
     static public void main(String[] args){
 
         clips = new Environment();
 
-        clips.load("RulesMonitor.CLP");
+        clips.load("RulesDiagnoser.CLP");
         clips.reset();
         System.out.println("get list" + clips.eval("(get-defrule-list)").toString());
 
 
     }
+
+
+
 
 
     private boolean error_conditions (){
@@ -64,4 +64,5 @@ public class Monitor {
 
         return true;
     }
+
 }
