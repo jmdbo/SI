@@ -11,6 +11,8 @@ public class BufferData {
     public boolean errorBit;
     public final Hardware hardware;
     public boolean actionOn;
+    public String bigAction;
+    public String smallAction;
 
     boolean getBit(int port, int bit) throws Exception {
         if (port >= 6 || bit >= 8) {
