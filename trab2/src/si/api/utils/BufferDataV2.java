@@ -36,10 +36,19 @@ public class BufferDataV2 extends BufferData {
                 posZ = 6 - i;
     }
 
+    private void AutoStationLeft() {
+        if(getState(3).getBit(0) != 0){
+            newState[4].setBit(7,1);
+        }
+        else
+            newState[4].setBit(7,0);
+    }
+
     @Override
     public void runAtUpdate() {
         updateXValue();
         updateYValue();
         updateZValue();
+        AutoStationLeft();
     }
 }
