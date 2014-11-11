@@ -1,21 +1,22 @@
-package trab1;
+package si.diagnoser;
 import CLIPSJNI.Environment;
+import si.api.utils.*;
 
 /**
  * Created by Aires on 11-11-2014.
  */
-public class Diagnozer {
+public class Diagnoser {
 
 
     public static BufferData bufferData;
 
-    public Diagnozer (BufferData _bd){
+    public Diagnoser(BufferData _bd){
         bufferData=_bd;
     }
     private static Environment clips;
 
 
-    private Diagnozer() { }
+    private Diagnoser() { }
 
     static public void main(String[] args){
 
@@ -35,7 +36,7 @@ public class Diagnozer {
     private boolean error_conditions (){
 
         //ERRO1
-        if (bufferData.pieceInStation() == 0)
+        if (bufferData.getState(2).getBit(7) == 0)
             clips.eval("assert PieceInStation false");
         else clips.eval("assert PieceInStation true");
 
@@ -59,8 +60,6 @@ public class Diagnozer {
         if (bufferData.gety() == 2)
             clips.eval("assert ElevatorAtCell true");
         else clips.eval("assert ElevatorAtCell false");
-
-
 
         return true;
     }
