@@ -1,27 +1,24 @@
-
 (defrule EntryReady_Rule
-    (PieceInEntryStation false)
-    (ElevatorAtEntryStation true)
+    (PieceInStation false)
+    (ElevatorAtStation true)
     (LoadingFromStationToElevator true)
 => (assert (EntryReadyError)))
 
-
 (defrule EntryLoad_Rule
      (PieceInElevator false)
-    (ElevatorLoadComplete true)
+    (ElevatorLoadFromStationComplete true)
     (LoadingFromStationToElevator true)
 => (assert (EntryLoadError)))
 
-
 (defrule OccupiedStation_Rule
-    (ExitStationEmpty false)
-    (ElevatorAtExitStation true)
-    (RemovingFromStorageToElevator true)
+    (PieceInStation true)
+    (ElevatorAtStation true)
+    (RemovingFromCellToElevator true)
 => (assert (OccupiedStationError)))
 
 (defrule NoPiece_Rule
     (PieceInElevator false)
-    (ElevatorAtStorageStation true)
+    (ElevatorAtCell true)
     (StoringPiece true)
 => (assert (NoPieceError)))
 
@@ -36,9 +33,7 @@
 => (assert (StorageEmptyError)))
 
 (defrule LostPieceOnRetrieval_Rule
-    (ElevatorLoadComplete true)
+    (ElevatorLoadFromCellComplete true)
     (PieceInElevator false)
     (RemovingFromStorageToElevator true)
 => (assert (LostPieceOnRetrievalError)))
-
-

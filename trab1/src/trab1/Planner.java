@@ -49,9 +49,7 @@ public class Planner implements Runnable {
                 dispatcherQueue.add(new Command("trab1.PutGet", ISTRAY, ISPUTTING));
 
             }
-            if(cmd.order=="switchPiece"){
-
-            }
+            //if(cmd.order=="switchPiece"){ }
 
 
         }
