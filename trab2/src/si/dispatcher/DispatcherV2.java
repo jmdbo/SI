@@ -50,18 +50,18 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
             }
 
             try {
-                data.SimpleCurrentIntruction = data.SimpleInstruction.take();
+                data.worldStateCurrent.SimpleInstruction = data.SimpleInstruction.take();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            System.out.println("Starting Instuction : " + data.SimpleCurrentIntruction.getOp());
+            System.out.println("Starting Instuction : " + data.worldStateCurrent.SimpleInstruction.getOp());
 
             while (!data.emergency) {
 
-                x = data.getDx(data.SimpleCurrentIntruction.getX());
-                y = data.getDy(data.SimpleCurrentIntruction.getY());
-                z = data.getDz(data.SimpleCurrentIntruction.getZ());
+                x = data.getDx(data.worldStateCurrent.SimpleInstruction.getX());
+                y = data.getDy(data.worldStateCurrent.SimpleInstruction.getY());
+                z = data.getDz(data.worldStateCurrent.SimpleInstruction.getZ());
 
                 axis_xz(x, z);
                 axis_y(y);
@@ -77,7 +77,7 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
                 }
             }
 
-            System.out.println("Finished Instuction : " + data.SimpleCurrentIntruction.getOp());
+            System.out.println("Finished Instuction : " + data.worldStateCurrent.SimpleInstruction.getOp());
         }
     }
 

@@ -16,6 +16,7 @@ public class Diagnoser {
     private static Environment clips;
 
 
+
     private Diagnoser() { }
 
     static public void main(String[] args){
@@ -40,26 +41,18 @@ public class Diagnoser {
             clips.eval("assert PieceInStation false");
         else clips.eval("assert PieceInStation true");
 
-        if (bufferData.elevatorInStation()!=0)
+        if ((bufferData.posX==0&& bufferData.posZ== 00) || (bufferData.posX== 9 && bufferData.posZ==0) )
             clips.eval("assert ElevatorAtStation true");
         else clips.eval("assert ElevatorAtStation false");
 
 
         //ERRO2
         //(PieceInElevator false)
-        if (bufferData.hasPiece())
+        if (bufferData.pieceAtLift())
             clips.eval("assert PieceInElevator true");
         else clips.eval("assert PieceInElevator false");
 
 
-        //ERRO 4
-        if (bufferData.hasPiece())
-            clips.eval("assert PieceInElevator true");
-        else clips.eval("assert PieceInElevator false");
-
-        if (bufferData.gety() == 2)
-            clips.eval("assert ElevatorAtCell true");
-        else clips.eval("assert ElevatorAtCell false");
 
         return true;
     }

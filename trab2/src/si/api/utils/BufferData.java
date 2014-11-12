@@ -23,10 +23,11 @@ public class BufferData {
      */
 
     public BlockingQueue<Instruction> SimpleInstruction;
-    public Instruction SimpleCurrentIntruction;
 
     public BlockingQueue<Instruction> ComplexInstruction;
-    public Instruction ComplexCurrentInstruction;
+
+    public WorldState worldStateCurrent;
+    public WorldState worldStateOld;
 
     public int posX = -1, posZ = -1, posY = -1;
 
