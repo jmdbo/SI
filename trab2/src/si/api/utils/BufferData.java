@@ -24,7 +24,7 @@ public class BufferData {
      */
 
     public BlockingQueue<Instruction> SimpleInstruction;
-    public Instruction SimpleCurrentInstructi;
+    public Instruction SimpleCurrentInstruction;
     public Instruction SimpleOldInstruction;
 
     public BlockingQueue<Instruction> ComplexInstruction;
@@ -36,7 +36,6 @@ public class BufferData {
     public int posX = -1, posZ = -1, posY = -1;
 
     public boolean emergency;
-    
     /**
      * Custom Code ( END )
      */
@@ -115,4 +114,21 @@ public class BufferData {
         return getState(2).getBit(7) == 1;
     }
 
+    /* 0 ==> No piece in any station
+    *  1 ==> Piece in left station
+    *  2 ==> Piece in right station
+    *  3 ==> Piece in both stations
+    */
+    public int pieceInStation() {
+        if(getState(3).getBit(0)==0 && getState(3).getBit(1)==1){
+            return 1;
+        }
+        if(getState(3).getBit(1) == 0 && getState(3).getBit(0) == 1){
+            return 2;
+        }
+        if(getState(3).getBit(0) == 0 && getState(3).getBit(1) == 0){
+            return 3;
+        }
+        return 0;
+    }
 }

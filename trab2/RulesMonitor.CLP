@@ -4,10 +4,15 @@
     (LoadingFromStationToElevator true)
 => (assert (Error)))
 
+(deftemplate Position
+(slot x (default ?NONE))
+(slot y (default ?NONE))
+)
+
 
 (defrule EntryLoad_Rule
-     (PieceInElevator false)
-    (ElevatorLoadFromStationComplete true)
+    (PieceInElevator false)
+    (S_LOAD_STATION)
     (LoadingFromStationToElevator true)
 => (assert (Error)))
 
