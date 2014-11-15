@@ -18,15 +18,19 @@ public class BufferData {
      */
     public boolean keepUpdates;
     public HwByte[] newState = new HwByte[6];
+    public HwByte[] oldState = new HwByte[6];
     /**
      * Custom Code ( BEGIN )
      */
 
     public BlockingQueue<Instruction> SimpleInstruction;
+    public Instruction SimpleCurrentInstructi;
+    public Instruction SimpleOldInstruction;
 
     public BlockingQueue<Instruction> ComplexInstruction;
+    public Instruction ComplexCurrentInstruction;
+    public Instruction ComplexOldInstruction;
 
-    public WorldState worldStateCurrent;
     public WorldState worldStateOld;
 
     public int posX = -1, posZ = -1, posY = -1;
