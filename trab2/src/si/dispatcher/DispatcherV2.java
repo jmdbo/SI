@@ -58,6 +58,9 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
             }
 
             System.out.println("Starting Instuction : " + data.SimpleCurrentInstruction.getOp());
+            if(data.SimpleCurrentInstruction.getOp()!="FINISHED_COMPLEX" && data.ComplexCurrentInstructionDone){
+                data.ComplexCurrentInstructionDone = false;
+            }
 
             while (!data.emergency) {
 
@@ -80,6 +83,10 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
             }
 
             System.out.println("Finished Instuction : " + data.SimpleCurrentInstruction.getOp());
+            data.SimpleCurrentInstructionDone = true;
+            if(data.SimpleCurrentInstruction.getOp()=="FINISHED_COMPLEX"){
+                data.ComplexCurrentInstructionDone = true;
+            }
         }
     }
 

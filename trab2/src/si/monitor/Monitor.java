@@ -59,6 +59,26 @@ public class Monitor implements Runnable {
     @Override
     public void run() {
         while(true){
+            while(!bufferData.emergency){
+                clips.reset();
+                String asrt = "assert (C_";
+                asrt+= bufferData.ComplexCurrentInstruction.getOp();
+                if(bufferData.ComplexCurrentInstructionDone){
+                    asrt+="_DONE";
+                }
+                asrt+= ")";
+                clips.eval(asrt);
+                asrt = "assert (S_" + bufferData.SimpleCurrentInstruction.getOp();
+                if(bufferData.SimpleCurrentInstructionDone){
+                    asrt+="_DONE";
+                }
+                asrt+= ")";
+                clips.assertString(asrt);
+                error_conditions();
+                System.out.println("Sending to CLIPS");
+
+            }
+
 
         }
 

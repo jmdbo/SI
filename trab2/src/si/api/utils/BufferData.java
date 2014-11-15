@@ -25,10 +25,12 @@ public class BufferData {
 
     public BlockingQueue<Instruction> SimpleInstruction;
     public Instruction SimpleCurrentInstruction;
+    public boolean SimpleCurrentInstructionDone;
     public Instruction SimpleOldInstruction;
 
     public BlockingQueue<Instruction> ComplexInstruction;
     public Instruction ComplexCurrentInstruction;
+    public boolean ComplexCurrentInstructionDone;
     public Instruction ComplexOldInstruction;
 
     public WorldState worldStateOld;
@@ -43,6 +45,7 @@ public class BufferData {
      * API variables to use from inside the class
      */
     private HwByte[] state = new HwByte[6];
+
 
     public BufferData() {
         for (HwByte h : newState) {
