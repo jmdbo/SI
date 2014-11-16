@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 (deftemplate Estado
+=======
+(deftemplate Action
+(slot complx (default ?NONE))
+(slot simpl  (default ?NONE))
+)
+
+>>>>>>> f2072a8c4380d8b32b3e8206b5b9fb3d1cc864b0
 (deftemplate Position
 (slot x (default ?NONE))
 (slot y (default ?NONE))
