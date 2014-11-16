@@ -64,7 +64,7 @@ public class Monitor implements Runnable {
             while(!bufferData.emergency){
                 clips.reset();
                 if(bufferData.ComplexCurrentInstruction!=null) {
-                    asrt = "(assert (C_";
+                    asrt = "(assert (ComplexAction ";
                     asrt += bufferData.ComplexCurrentInstruction.getOp();
                     if (bufferData.ComplexCurrentInstructionDone) {
                         asrt += "_DONE";
@@ -74,7 +74,7 @@ public class Monitor implements Runnable {
                     clips.eval(asrt);
                 }
                 if(bufferData.SimpleCurrentInstruction!=null){
-                    asrt = "(assert (S_" + bufferData.SimpleCurrentInstruction.getOp();
+                    asrt = "(assert (SimpleAction " + bufferData.SimpleCurrentInstruction.getOp();
                     if (bufferData.SimpleCurrentInstructionDone) {
                         asrt += "_DONE";
                     }
@@ -83,12 +83,18 @@ public class Monitor implements Runnable {
                     clips.assertString(asrt);
                     error_conditions();
                 }
-            }
-            try {
-                Thread.sleep(500);
-            }catch (Exception e){
+                try {
+                    Thread.sleep(4000);
+                }catch (Exception e){
 
+                }
+                try {
+                    Thread.sleep(4000);
+                }catch (Exception e){
+
+                }
             }
+
 
 
         }
