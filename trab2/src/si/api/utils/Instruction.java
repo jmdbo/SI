@@ -36,9 +36,12 @@ public class Instruction {
         if (obj == null) return false;
         if (!(obj instanceof Instruction)) return false;
         Instruction inst = (Instruction) obj;
-        if(!(getX() == inst.getX()))
+        if (!(getX() == inst.getX()))
             return false;
         // TODO : take care of this equals
         return true;
     }
+
 }
+
+
