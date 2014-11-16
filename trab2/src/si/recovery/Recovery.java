@@ -60,6 +60,10 @@ public class Recovery {
         if(errorType.equals(ERROR4)){
                         //super erro popup
         }
+        
+        
+        //armazem cheio, procurar complexInstrution 
+        //de remover e passala para primeiro
         if(errorType.equals(ERROR5)){
             
             while(iteradorCI.hasNext()){
@@ -87,7 +91,8 @@ public class Recovery {
             return false;
         }
         
-        
+        //armazem vazio, procurar complexInstrution 
+        //de colocar e passala para primeiro
         if(errorType.equals(ERROR6)){
             
             while(iteradorCI.hasNext()){
@@ -115,17 +120,21 @@ public class Recovery {
             return false;
         }
         
-        
+        //procurar outra cell ocupada e retirar caixa
         if(errorType.equals(ERROR7)){
+            int[] aux = new int [2];
+            aux = data.ocuppiedcell();
             
+            if(aux[0]==0 && aux[1]==0){
+                //error warehouse completly empty
+                return false;
+            }
             
-            
-            
-            
-            
-            
-            
-            
+            ComplexBackup.add(new ComplexInstruction(aux[0],aux[1],"PUT_PIECE", 0, 0));
+            ComplexBackup.addAll(data.ComplexInstruction);
+            data.ComplexInstruction.addAll(ComplexBackup);
+            ComplexBackup.clear();
+            return true;
         }
         
         data.SimpleInstruction.drainTo(Backup);

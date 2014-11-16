@@ -99,6 +99,15 @@ public class BufferData {
         return (aux);
     }
 
+    public void BusyCell(int x, int z){
+        ocuppiedCells[x][z]= true;
+    }
+    
+    public void FreeCell(int x, int z){
+        ocuppiedCells[x][z]= false;
+    }
+    
+    
     public void updateStatePort(int port, int val) {
         this.state[port] = HwByte.parseInt(val);
     }

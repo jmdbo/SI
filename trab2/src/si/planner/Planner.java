@@ -41,6 +41,7 @@ public class Planner {
         data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "ELEVATOR_MIDDLE"));
         data.SimpleInstruction.add(new Instruction(-1, -1, -1, -1, "CELL_PUT_DONE"));
         data.SimpleInstruction.add(new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX"));
+        data.BusyCell(x, z);
     }
 
     public void gotoXZ(int x, int z) {
@@ -68,7 +69,7 @@ public class Planner {
         data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "ELEVATOR_MIDDLE"));
         
         data.SimpleInstruction.add(new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX"));
-        
+        data.FreeCell(x, z);
         
         
         
@@ -92,5 +93,7 @@ public class Planner {
         data.SimpleInstruction.add(new Instruction(-1, -1, -1, 0, "PUT_PIECE"));
         data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "STATION_MID"));
         data.SimpleInstruction.add(new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX"));
+        data.FreeCell(x, z);
+        data.BusyCell(x_dest, z_dest);
     }
 }
