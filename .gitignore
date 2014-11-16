@@ -1,5 +1,4 @@
 *.properties
 *.class
 /trab2/dist/
-/trab2/nbproject/private/
 /trab2/build/
