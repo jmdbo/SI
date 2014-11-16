@@ -1,6 +1,7 @@
 (deftemplate Position
 (slot x (default ?NONE))
 (slot y (default ?NONE))
+(slot z (default ?NONE))
 )
 
 (defrule EntryReady_Rule
@@ -29,24 +30,26 @@
 
 (defrule NoPiece_Rule
     (PieceInElevator false)
-    (ElevatorAtCell true)
-    (StoringPiece true)
+    (S_PUT_CELL)
+    (Position (x ?a) (y ?c) (z ?b))
+    (test (eq ?c Middle))
+    (test (neq ?a -1))
+    (test (neq ?b -1))
 => (assert (Error)))
 
 (defrule StorageFull_Rule
     (StorageFull true)
-    (StoringPiece true)
+    (C_STORE_PIECE)
    => (assert (Error)))
 
 (defrule StorageEmpty_Rule
     (StorageEmpty true)
-    (RetrievingPiece true)
+    (C_GET_PIECE)
 => (assert (Error)))
 
 (defrule LostPieceOnRetrieval_Rule
-    (ElevatorLoadFromCellComplete true)
+    (S_GET_CELL_DONE)
     (PieceInElevator false)
-    (RemovingFromStorageToElevator true)
 => (assert (Error)))
 
 

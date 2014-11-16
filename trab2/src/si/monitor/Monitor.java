@@ -23,34 +23,35 @@ public class Monitor implements Runnable {
 
         //ERRO1
         if (bufferData.pieceInStation() == 0)
-            clips.eval("assert (PieceInStation false)");
-        else clips.eval("assert (PieceInStation true)");
+            clips.eval("(assert (PieceInStation false))");
+        else clips.eval("(assert (PieceInStation true))");
 
         if (bufferData.posZ == 0){
             if(bufferData.posX == 0) {
-                clips.eval("assert (ElevatorAtStation Left)");
+                clips.eval("(assert (ElevatorAtStation Left))");
             }
             else if( bufferData.posX==9){
-                clips.eval("assert (ElevatorAtStation Right)");
+                clips.eval("(assert (ElevatorAtStation Right))");
             }
-            else clips.eval("assert (ElevatorAtStation false)");
+            else clips.eval("(assert (ElevatorAtStation false))");
         } else{
-            clips.eval("assert (ElevatorAtStation false)");
+            clips.eval("(assert (ElevatorAtStation false))");
         }
 
 
         //ERRO2
         //(PieceInElevator false)
         if (bufferData.pieceAtLift())
-            clips.eval("assert (PieceInElevator true)");
-        else clips.eval("assert (PieceInElevator false)");
+            clips.eval("(assert (PieceInElevator true))");
+        else clips.eval("(assert (PieceInElevator false))");
 
 
         //ERRO 4
         String Asrt;
-        Asrt = "assert (Position (x ";
+        Asrt = "(assert (Position (x ";
         Asrt+= bufferData.posX +") (y ";
-        Asrt+= bufferData.posY +"))";
+        Asrt+= bufferData.posY +") (z ";
+        Asrt+= bufferData.posZ +")))";
         clips.eval(Asrt);
 
         return true;
@@ -59,23 +60,33 @@ public class Monitor implements Runnable {
     @Override
     public void run() {
         while(true){
+            String asrt;
             while(!bufferData.emergency){
                 clips.reset();
-                String asrt = "assert (C_";
-                asrt+= bufferData.ComplexCurrentInstruction.getOp();
-                if(bufferData.ComplexCurrentInstructionDone){
-                    asrt+="_DONE";
+                if(bufferData.ComplexCurrentInstruction!=null) {
+                    asrt = "(assert (C_";
+                    asrt += bufferData.ComplexCurrentInstruction.getOp();
+                    if (bufferData.ComplexCurrentInstructionDone) {
+                        asrt += "_DONE";
+                    }
+                    asrt += "))";
+                    System.out.println("Sending to CLIPS: " + asrt );
+                    clips.eval(asrt);
                 }
-                asrt+= ")";
-                clips.eval(asrt);
-                asrt = "assert (S_" + bufferData.SimpleCurrentInstruction.getOp();
-                if(bufferData.SimpleCurrentInstructionDone){
-                    asrt+="_DONE";
+                if(bufferData.SimpleCurrentInstruction!=null){
+                    asrt = "(assert (S_" + bufferData.SimpleCurrentInstruction.getOp();
+                    if (bufferData.SimpleCurrentInstructionDone) {
+                        asrt += "_DONE";
+                    }
+                    asrt += "))";
+                    System.out.println("Sending to CLIPS: " + asrt);
+                    clips.assertString(asrt);
+                    error_conditions();
                 }
-                asrt+= ")";
-                clips.assertString(asrt);
-                error_conditions();
-                System.out.println("Sending to CLIPS");
+            }
+            try {
+                Thread.sleep(500);
+            }catch (Exception e){
 
             }
 
