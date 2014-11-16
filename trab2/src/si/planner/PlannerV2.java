@@ -27,11 +27,11 @@ public class PlannerV2 extends Planner implements Runnable{
                 complex = data.ComplexInstruction.take();
                 data.ComplexCurrentInstruction = complex;
                 System.out.println("Starting Complex Instruction : "+complex.getOp());
-                if(complex.getOp()=="PUT_PIECE")
+                if("PUT_PIECE".equals(complex.getOp()))
                     putPieceAt(complex.getX(),complex.getZ());
-                if(complex.getOp()=="GET_PIECE")
+                if("GET_PIECE".equals(complex.getOp()))
                     getPieceFrom(complex.getX(), complex.getZ());
-                if(complex.getOp()=="SWITCH_PIECE")
+                if("SWITCH_PIECE".equals(complex.getOp()))
                     switchPiece(complex.getX(), complex.getZ(), complex.getX_dest(), complex.getZ_dest());
 
             }catch (Exception e){

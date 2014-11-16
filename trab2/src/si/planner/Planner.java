@@ -21,10 +21,10 @@ public class Planner {
     public void putPieceAt(int x, int z) {
 
         // Get Piece From The Station if Missing
-        /*if (!data.pieceAtLift()) {
+        if (!data.pieceAtLift()) {
             data.SimpleInstruction.add(new Instruction(0, 1, 0, "GOTO_STATION"));
             data.SimpleInstruction.add(new Instruction(-1, 2, -1, "STATION_GET"));
-        }*/
+        }
 
         // Goto the required position
         data.SimpleInstruction.add(new Instruction(-1, 1, -1, "STATION_MID"));
@@ -42,6 +42,9 @@ public class Planner {
     }
 
     public void getPieceFrom(int x, int z) {
+        //Go To Desired Position!
+        data.SimpleInstruction.add(new Instruction(-1, 1, -1, "STATION_MIDDLE"));
+        data.SimpleInstruction.add(new Instruction(x, -1, z, "STATION_MIDDLE"));
     }
 
     public void switchPiece(int x, int z, int x_dest, int z_dest) {

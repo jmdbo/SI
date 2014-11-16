@@ -1,5 +1,4 @@
 (deftemplate Estado
-
 (deftemplate Position
 (slot x (default ?NONE))
 (slot y (default ?NONE))

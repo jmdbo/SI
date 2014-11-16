@@ -35,6 +35,19 @@ public class BufferDataV2 extends BufferData {
             if(getState(2).getBit(i) == 0)
                 posZ = 6 - i;
     }
+    
+    private void updatePutValue(){
+        if(getState(1).getBit(5)==0 || getState(1).getBit(7) == 0 || 
+                getState(2).getBit(1) == 0 || getState(2).getBit(4)==0 ||
+                getState(2).getBit(5)==0 )
+            posPut = 1;
+        else if(getState(1).getBit(5)==0 || getState(1).getBit(7) == 0 || 
+                getState(2).getBit(1) == 0 || getState(2).getBit(4)==0 ||
+                getState(2).getBit(5)==0)
+            posPut = 0;
+        else
+            posPut = -1;
+    }
 
     private void AutoStationLeft() {
         if(getState(3).getBit(0) != 0){
@@ -49,6 +62,6 @@ public class BufferDataV2 extends BufferData {
         updateXValue();
         updateYValue();
         updateZValue();
-        AutoStationLeft();
+        updatePutValue();
     }
 }

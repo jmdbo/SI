@@ -24,6 +24,7 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
      * @see Thread#run()
      */
     @Override
+    @SuppressWarnings("SleepWhileInLoop")
     public void run() {
 
         int x = 0, y = 0, z = 0;
@@ -58,7 +59,7 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
             }
 
             System.out.println("Starting Instruction : " + data.SimpleCurrentInstruction.getOp());
-            if(data.SimpleCurrentInstruction.getOp()!="FINISHED_COMPLEX" && data.ComplexCurrentInstructionDone){
+            if(!data.SimpleCurrentInstruction.getOp().equals("FINISHED_COMPLEX") && data.ComplexCurrentInstructionDone){
                 data.ComplexCurrentInstructionDone = false;
             }
 
@@ -84,8 +85,9 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
 
             System.out.println("Finished Instruction : " + data.SimpleCurrentInstruction.getOp());
             data.SimpleCurrentInstructionDone = true;
-            if(data.SimpleCurrentInstruction.getOp()=="FINISHED_COMPLEX"){
+            if(data.SimpleCurrentInstruction.getOp().equals("FINISHED_COMPLEX")){
                 data.ComplexCurrentInstructionDone = true;
+                data.ComplexOldInstruction = data.ComplexCurrentInstruction;
             }
         }
     }

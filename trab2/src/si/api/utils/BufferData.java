@@ -35,7 +35,7 @@ public class BufferData {
 
     public WorldState worldStateOld;
 
-    public int posX = -1, posZ = -1, posY = -1;
+    public int posX = -1, posZ = -1, posY = -1, posPut=-1;
 
     public boolean emergency;
     /**
