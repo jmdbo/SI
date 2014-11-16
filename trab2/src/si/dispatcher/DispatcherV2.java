@@ -58,12 +58,7 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
-
-            System.out.println("Starting Instruction : " + data.SimpleCurrentInstruction.getOp());
-            if(!data.SimpleCurrentInstruction.getOp().equals("FINISHED_COMPLEX") && data.ComplexCurrentInstructionDone){
-                data.ComplexCurrentInstructionDone = false;
-            }
+            }           
 
             while (!data.emergency) {
 

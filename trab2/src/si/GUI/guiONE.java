@@ -4,6 +4,15 @@
  * and open the template in the editor.
  */
 package si.GUI;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import si.api.utils.BufferData;
+import si.api.utils.BufferDataV2;
+import si.api.utils.ComplexInstruction;
+import si.dispatcher.DispatcherV2;
+import si.planner.PlannerV2;
+
 /**
  *
  * @author Aires
@@ -18,18 +27,22 @@ public class guiONE extends javax.swing.JFrame {
         this.setResizable(false); 
         //cell2
         jLabel4.setVisible(false);
-        jTextField1.setVisible(false);
-        jTextField2.setVisible(false);
+        jZ2Field.setVisible(false);
+        jX2Field.setVisible(false);
         
         //stations
         jLabel2.setVisible(false);
-        jRadioButton3.setVisible(false);
-        jRadioButton4.setVisible(false);
+        jLeftStationButton.setVisible(false);
+        jRightStationButton.setVisible(false);
         
         //error label
         jLabel7.setVisible(false);
         jLabel9.setVisible(false);
         jLabel10.setVisible(false);
+        
+        
+        
+        
         
     }
 
@@ -48,19 +61,19 @@ public class guiONE extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        jPutButton = new javax.swing.JRadioButton();
+        jGetButton = new javax.swing.JRadioButton();
+        jLeftStationButton = new javax.swing.JRadioButton();
+        jRightStationButton = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jZ2Field = new javax.swing.JTextField();
+        jX2Field = new javax.swing.JTextField();
+        jZ1Field = new javax.swing.JTextField();
+        jX1Field = new javax.swing.JTextField();
+        jSwitchButton = new javax.swing.JRadioButton();
+        jGoButton = new javax.swing.JButton();
+        jStopButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -85,35 +98,35 @@ public class guiONE extends javax.swing.JFrame {
         jLabel4.setText("Cell 2");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 
-        action_choose.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jRadioButton1.setText("Put in Cell");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        action_choose.add(jPutButton);
+        jPutButton.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jPutButton.setText("Put in Cell");
+        jPutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jPutButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        getContentPane().add(jPutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        action_choose.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jRadioButton2.setText("Get from Cell");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        action_choose.add(jGetButton);
+        jGetButton.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jGetButton.setText("Get from Cell");
+        jGetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jGetButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        getContentPane().add(jGetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        Station_choose.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jRadioButton3.setText("Left");
-        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
+        Station_choose.add(jLeftStationButton);
+        jLeftStationButton.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLeftStationButton.setText("Left");
+        getContentPane().add(jLeftStationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
 
-        Station_choose.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jRadioButton4.setText("Right");
-        getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        Station_choose.add(jRightStationButton);
+        jRightStationButton.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jRightStationButton.setText("Right");
+        getContentPane().add(jRightStationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jLabel5.setText("X");
@@ -123,44 +136,44 @@ public class guiONE extends javax.swing.JFrame {
         jLabel6.setText("Z");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 10, 20));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jZ2Field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jZ2FieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 40, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 40, -1));
+        getContentPane().add(jZ2Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 40, -1));
+        getContentPane().add(jX2Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 40, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jZ1Field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jZ1FieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 40, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 40, -1));
+        getContentPane().add(jZ1Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 40, -1));
+        getContentPane().add(jX1Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 40, -1));
 
-        action_choose.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jRadioButton5.setText("Switch Cell");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        action_choose.add(jSwitchButton);
+        jSwitchButton.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jSwitchButton.setText("Switch Cell");
+        jSwitchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                jSwitchButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        getContentPane().add(jSwitchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Calibri Light", 0, 36)); // NOI18N
-        jButton1.setText("Go");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jGoButton.setFont(new java.awt.Font("Calibri Light", 0, 36)); // NOI18N
+        jGoButton.setText("Go");
+        jGoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jGoButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 100, 60));
+        getContentPane().add(jGoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 100, 60));
 
-        jButton2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jButton2.setText("STOP");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, 40));
+        jStopButton.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jStopButton.setText("STOP");
+        getContentPane().add(jStopButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/si/box.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
@@ -181,71 +194,108 @@ public class guiONE extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jPutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPutButtonActionPerformed
         //cell2
         jLabel4.setVisible(false);
-        jTextField1.setVisible(false);
-        jTextField2.setVisible(false);
-        jTextField1.setText("");
-        jTextField2.setText("");
+        jZ2Field.setVisible(false);
+        jX2Field.setVisible(false);
+        jZ2Field.setText("");
+        jX2Field.setText("");
         
         //stations
         jLabel2.setVisible(true);
-        jRadioButton3.setVisible(true);
-        jRadioButton4.setVisible(true);
+        jLeftStationButton.setVisible(true);
+        jRightStationButton.setVisible(true);
         
 // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_jPutButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jZ2FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jZ2FieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jZ2FieldActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jZ1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jZ1FieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jZ1FieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jGoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGoButtonActionPerformed
         // TODO add your handling code here:
+        int x, z, x_dest, z_dest;
+        jLabel7.setVisible(false);
+        jLabel9.setVisible(false);
+        jLabel10.setVisible(false);
+        try {
+            x = Integer.parseInt(jX1Field.getText());
+            z = Integer.parseInt(jZ1Field.getText());
+            
+            if(jPutButton.isSelected()){
+                if(jLeftStationButton.isSelected())
+                    data.ComplexInstruction.add(new ComplexInstruction(x,z,"PUT_PIECE", 0, 0));
+                else if(jRightStationButton.isSelected())
+                     data.ComplexInstruction.add(new ComplexInstruction(x,z,"PUT_PIECE", 9, 0));
+            }
+            if(jGetButton.isSelected()){
+                if(jLeftStationButton.isSelected())
+                    data.ComplexInstruction.add(new ComplexInstruction(x,z,"GET_PIECE", 0, 0));
+                else if(jRightStationButton.isSelected())
+                    data.ComplexInstruction.add(new ComplexInstruction(x,z,"GET_PIECE", 9, 0));                    
+            }
+            if (jSwitchButton.isSelected()) {
+                x_dest = Integer.parseInt(jX2Field.getText());
+                z_dest = Integer.parseInt(jZ2Field.getText());
+                data.ComplexInstruction.add(new ComplexInstruction(x,z,"SWITCH_PIECE", x_dest, z_dest));
+            }
+            
+        } catch (Exception e) {
+            jLabel7.setVisible(true);
+            jLabel9.setVisible(true);
+            jLabel10.setVisible(true);
+        }
+
+
+       
+       /*
+       if(conditions_to_process()){
+           
+       }else{
+           
+       }
+       */
+       
         
-       if(conditions_to_process());
-            //inputs welldone
-       else;
-            //inputs not welldone
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jGoButtonActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jGetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGetButtonActionPerformed
         //cell2
         jLabel4.setVisible(false);
-        jTextField1.setVisible(false);
-        jTextField2.setVisible(false);
-        jTextField1.setText("");
-        jTextField2.setText("");
+        jZ2Field.setVisible(false);
+        jX2Field.setVisible(false);
+        jZ2Field.setText("");
+        jX2Field.setText("");
         
         
         //stations
         jLabel2.setVisible(true);
-        jRadioButton3.setVisible(true);
-        jRadioButton4.setVisible(true);
+        jLeftStationButton.setVisible(true);
+        jRightStationButton.setVisible(true);
         
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jGetButtonActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void jSwitchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSwitchButtonActionPerformed
 
         //cell2
         jLabel4.setVisible(true);
-        jTextField1.setVisible(true);
-        jTextField2.setVisible(true);
+        jZ2Field.setVisible(true);
+        jX2Field.setVisible(true);
         
         //stations
         jLabel2.setVisible(false);
-        jRadioButton3.setVisible(false);
-        jRadioButton4.setVisible(false);
+        jLeftStationButton.setVisible(false);
+        jRightStationButton.setVisible(false);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_jSwitchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,6 +324,16 @@ public class guiONE extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        data = new BufferDataV2();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(guiONE.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        new Thread(new DispatcherV2(data)).start();
+        new Thread(new PlannerV2(data)).start();
+        //new Thread(new Monitor(bd)).start();
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -283,6 +343,8 @@ public class guiONE extends javax.swing.JFrame {
             }
         });
         
+        
+        
     }
     
     
@@ -291,16 +353,16 @@ public class guiONE extends javax.swing.JFrame {
         
         if (
             //cell 1 with put and get from station;
-            (((Integer.parseInt(jTextField3.getText())) <= 5 && (Integer.parseInt(jTextField3.getText()) >= 1)) && 
-            ((Integer.parseInt(jTextField4.getText()) <= 10) && (Integer.parseInt(jTextField4.getText()) >= 1)) &&
-            (jRadioButton1.isSelected() || jRadioButton2.isSelected()) &&
-            (jRadioButton3.isSelected() || jRadioButton4.isSelected()))
+            (((Integer.parseInt(jZ1Field.getText())) <= 5 && (Integer.parseInt(jZ1Field.getText()) >= 1)) && 
+            ((Integer.parseInt(jX1Field.getText()) <= 10) && (Integer.parseInt(jX1Field.getText()) >= 1)) &&
+            (jPutButton.isSelected() || jGetButton.isSelected()) &&
+            (jLeftStationButton.isSelected() || jRightStationButton.isSelected()))
             //cell 1 to cell 2
-            || (jRadioButton5.isSelected() && 
-            ((Integer.parseInt(jTextField3.getText())) <= 5 && (Integer.parseInt(jTextField3.getText()) >= 1)) && 
-            ((Integer.parseInt(jTextField4.getText()) <= 10) && (Integer.parseInt(jTextField4.getText()) >= 1)) &&
-            ((Integer.parseInt(jTextField1.getText())) <= 5 && (Integer.parseInt(jTextField1.getText()) >= 1)) && 
-            ((Integer.parseInt(jTextField2.getText()) <= 10) && (Integer.parseInt(jTextField2.getText()) >= 1)))
+            || (jSwitchButton.isSelected() && 
+            ((Integer.parseInt(jZ1Field.getText())) <= 5 && (Integer.parseInt(jZ1Field.getText()) >= 1)) && 
+            ((Integer.parseInt(jX1Field.getText()) <= 10) && (Integer.parseInt(jX1Field.getText()) >= 1)) &&
+            ((Integer.parseInt(jZ2Field.getText())) <= 5 && (Integer.parseInt(jZ2Field.getText()) >= 1)) && 
+            ((Integer.parseInt(jX2Field.getText()) <= 10) && (Integer.parseInt(jX2Field.getText()) >= 1)))
                  
             //cell 1 with put and get from cell;   
                 
@@ -332,12 +394,13 @@ public class guiONE extends javax.swing.JFrame {
         return false;
     }
     
+    private static BufferData data;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Station_choose;
     private javax.swing.ButtonGroup action_choose;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JRadioButton jGetButton;
+    private javax.swing.JButton jGoButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -348,14 +411,14 @@ public class guiONE extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JRadioButton jLeftStationButton;
+    private javax.swing.JRadioButton jPutButton;
+    private javax.swing.JRadioButton jRightStationButton;
+    private javax.swing.JButton jStopButton;
+    private javax.swing.JRadioButton jSwitchButton;
+    private javax.swing.JTextField jX1Field;
+    private javax.swing.JTextField jX2Field;
+    private javax.swing.JTextField jZ1Field;
+    private javax.swing.JTextField jZ2Field;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,8 +29,6 @@ public class test {
         
         new Thread(new PlannerV2(bd)).start();
         //new Thread(new Monitor(bd)).start();
-        Environment clips = new Environment();
-        Environment clips2 = new Environment();
         bd.ComplexInstruction.add(new ComplexInstruction(1,2,"PUT_PIECE",0,0));
     }
 
