@@ -36,7 +36,11 @@ public class BufferData {
     public WorldState worldStateOld;
 
     public int posX = -1, posZ = -1, posY = -1, posPut=-1;
-
+    
+    //array witch give you the occupied cells
+    private boolean[][] ocuppiedCells; 
+    
+    
     public boolean emergency;
     /**
      * Custom Code ( END )
@@ -51,7 +55,16 @@ public class BufferData {
         for (HwByte h : newState) {
             h = new HwByte();
         }
-
+        
+        //array witch give you the occupied cells (X,Z)
+        ocuppiedCells = new boolean [10][5];
+        for(int i=0; i<5; i++){
+            for(int n=0; i<10; n++){
+                ocuppiedCells[i][n] = false;
+            }
+        }
+        
+        
         this.ComplexInstruction = new ArrayBlockingQueue<>(100);
         this.SimpleInstruction = new ArrayBlockingQueue<>(100);
         this.emergency = false;
@@ -66,6 +79,24 @@ public class BufferData {
 
     public void setState(HwByte[] state) {
         this.state = state;
+    }
+    
+    //give a integer array (X,Z) of an ocuppiedcell
+    //return X=(1-10); Z=(1-4); return (0,0) if empty
+    public int[] ocuppiedcell(){
+        int[] aux = new int [2];
+        for(int i=0; i<5; i++){
+            for(int n=0; i<10; n++){
+                if(ocuppiedCells[n][i]){
+                    aux[0] = i+1;
+                    aux[1] = i+2;
+                    return (aux);
+                }
+            }
+        }
+        aux[0] = 0;
+        aux[1] = 0;
+        return (aux);
     }
 
     public void updateStatePort(int port, int val) {
