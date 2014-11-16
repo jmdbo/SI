@@ -8,6 +8,8 @@ import si.dispatcher.Dispatcher;
 import si.dispatcher.DispatcherV2;
 
 import java.nio.Buffer;
+
+import si.monitor.Monitor;
 import si.planner.PlannerV2;
 
 /**
@@ -25,14 +27,9 @@ public class test {
         new Thread(new DispatcherV2(bd)).start();
         
         new Thread(new PlannerV2(bd)).start();
+        new Thread(new Monitor(bd)).start();
         Environment clips = new Environment();
         Environment clips2 = new Environment();
-
-        clips.load("RulesMonitor.CLP");
-        clips.reset();
-        System.out.println("get list" + clips.eval("(get-defrule-list)").toString());
-        System.out.println("get list" + clips2.eval("(get-defrule-list)").toString());
-
     }
 
 }
