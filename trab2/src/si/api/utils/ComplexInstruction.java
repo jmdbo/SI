@@ -7,8 +7,8 @@ public class ComplexInstruction extends Instruction {
 
     private final int x_dest, z_dest;
 
-    public ComplexInstruction(int x, int y, int z, String op, int x_dest, int z_dest) {
-        super(x, y, z, op);
+    public ComplexInstruction(int x, int z, String op, int x_dest, int z_dest) {
+        super(x, -1, z, -1, op);
         this.x_dest = x_dest;
         this.z_dest = z_dest;
     }

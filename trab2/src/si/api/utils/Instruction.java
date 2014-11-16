@@ -5,13 +5,14 @@ package si.api.utils;
  */
 public class Instruction {
 
-    private final int x, y, z;
+    private final int x, y, z, put;
     private final String op;
 
-    public Instruction(int x, int y, int z, String op) {
+    public Instruction(int x, int y, int z,int put, String op) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.put = put;
         this.op = op;
     }
 
@@ -29,6 +30,10 @@ public class Instruction {
 
     public String getOp() {
         return op;
+    }
+    
+    public int getPut(){
+        return put;
     }
 
     @Override

@@ -6,6 +6,8 @@ import si.api.utils.BufferData;
 
 /**
  * Created by dd.fernandes on 04/11/2014.
+ * Updated by jmdb.oliveira
+ * Updated by j.aires
  */
 public class DispatcherV2 extends Dispatcher implements Runnable {
 
@@ -79,6 +81,22 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
                 }
 
                 if (x == 0 && y == 0 && z == 0) {
+                    if(data.posPut==data.SimpleCurrentInstruction.getPut() || 
+                            data.SimpleCurrentInstruction.getPut() == -1)
+                        break;
+                    if (data.posPut < data.SimpleCurrentInstruction.getPut()) {
+                        axis_xz(0, 1);
+                    }else if (data.posPut > data.SimpleCurrentInstruction.getPut())
+                        axis_xz(0, -1);
+                    while (data.posPut != data.SimpleCurrentInstruction.getPut()) {
+
+                        try {
+                            Thread.sleep(50);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    axis_xz(0, 0);
                     break;
                 }
             }

@@ -38,12 +38,12 @@ public class BufferDataV2 extends BufferData {
     
     private void updatePutValue(){
         if(getState(1).getBit(5)==0 || getState(1).getBit(7) == 0 || 
-                getState(2).getBit(1) == 0 || getState(2).getBit(4)==0 ||
+                getState(2).getBit(1) == 0 || getState(2).getBit(3)==0 ||
                 getState(2).getBit(5)==0 )
             posPut = 1;
-        else if(getState(1).getBit(5)==0 || getState(1).getBit(7) == 0 || 
-                getState(2).getBit(1) == 0 || getState(2).getBit(4)==0 ||
-                getState(2).getBit(5)==0)
+        else if(getState(1).getBit(6)==0 || getState(2).getBit(0) == 0 || 
+                getState(2).getBit(2) == 0 || getState(2).getBit(4)==0 ||
+                getState(2).getBit(6)==0)
             posPut = 0;
         else
             posPut = -1;
