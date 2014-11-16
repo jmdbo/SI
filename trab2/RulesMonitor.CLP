@@ -1,4 +1,7 @@
-(deftemplate Estado
+(deftemplate Action
+(slot complx (default ?NONE))
+(slot simpl  (default ?NONE))
+)
 
 (deftemplate Position
 (slot x (default ?NONE))
