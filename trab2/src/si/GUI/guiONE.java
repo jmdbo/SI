@@ -25,6 +25,8 @@ public class guiONE extends javax.swing.JFrame {
         jRadioButton3.setVisible(false);
         jRadioButton4.setVisible(false);
         
+        //error label
+        jLabel7.setVisible(false);
         
     }
 
@@ -57,6 +59,7 @@ public class guiONE extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,27 +112,27 @@ public class guiONE extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jLabel5.setText("X");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 20, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 10, -1));
 
         jLabel6.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jLabel6.setText("Z");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 10, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 10, 20));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 26, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 26, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 40, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 40, -1));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 21, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 21, -1));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 40, -1));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 40, -1));
 
         action_choose.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
@@ -157,6 +160,11 @@ public class guiONE extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/si/box.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel7.setText("Invalid inputs");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 80, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -165,6 +173,8 @@ public class guiONE extends javax.swing.JFrame {
         jLabel4.setVisible(false);
         jTextField1.setVisible(false);
         jTextField2.setVisible(false);
+        jTextField1.setText("");
+        jTextField2.setText("");
         
         //stations
         jLabel2.setVisible(true);
@@ -184,6 +194,15 @@ public class guiONE extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        if (Integer.parseInt(jTextField3.getText()) <= 5 && Integer.parseInt(jTextField3.getText()) >= 1 ){
+        //well done
+            jLabel7.setVisible(false);
+        }
+        else
+        {
+            jLabel7.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -191,6 +210,9 @@ public class guiONE extends javax.swing.JFrame {
         jLabel4.setVisible(false);
         jTextField1.setVisible(false);
         jTextField2.setVisible(false);
+        jTextField1.setText("");
+        jTextField2.setText("");
+        
         
         //stations
         jLabel2.setVisible(true);
@@ -265,6 +287,7 @@ public class guiONE extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
