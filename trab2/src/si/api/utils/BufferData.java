@@ -28,10 +28,10 @@ public class BufferData {
     public boolean SimpleCurrentInstructionDone;
     public Instruction SimpleOldInstruction;
 
-    public BlockingQueue<Instruction> ComplexInstruction;
-    public Instruction ComplexCurrentInstruction;
+    public BlockingQueue<ComplexInstruction> ComplexInstruction;
+    public ComplexInstruction ComplexCurrentInstruction;
     public boolean ComplexCurrentInstructionDone;
-    public Instruction ComplexOldInstruction;
+    public ComplexInstruction ComplexOldInstruction;
 
     public WorldState worldStateOld;
 

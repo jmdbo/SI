@@ -7,7 +7,7 @@
 package si.planner;
 
 import si.api.utils.BufferData;
-
+import si.api.utils.ComplexInstruction;
 /**
  *
  * @author Andre Ricardo
@@ -20,6 +20,29 @@ public class PlannerV2 extends Planner implements Runnable{
 
     @Override
     public void run() {
-        gotoXZ( 3 ,3);
+        ComplexInstruction complex;
+        while(true){
+
+            try {
+                complex = data.ComplexInstruction.take();
+                data.ComplexCurrentInstruction = complex;
+                System.out.println("Starting Complex Instruction : "+complex.getOp());
+                if(complex.getOp()=="PUT_PIECE")
+                    putPieceAt(complex.getX(),complex.getZ());
+                if(complex.getOp()=="GET_PIECE")
+                    getPieceFrom(complex.getX(), complex.getZ());
+                if(complex.getOp()=="SWITCH_PIECE")
+                    switchPiece(complex.getX(), complex.getZ(), complex.getX_dest(), complex.getZ_dest());
+
+            }catch (Exception e){
+
+            }
+
+
+        }
     }
+
+
+
+
 }

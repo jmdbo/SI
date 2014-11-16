@@ -40,4 +40,10 @@ public class Planner {
         data.SimpleInstruction.add(new Instruction(x, -1, z, "STATION_MIDDLE"));
         data.SimpleInstruction.add(new Instruction(-1, -1, -1, "FINISHED_COMPLEX"));
     }
+
+    public void getPieceFrom(int x, int z) {
+    }
+
+    public void switchPiece(int x, int z, int x_dest, int z_dest) {
+    }
 }
