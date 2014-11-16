@@ -57,7 +57,7 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
                 e.printStackTrace();
             }
 
-            System.out.println("Starting Instuction : " + data.SimpleCurrentInstruction.getOp());
+            System.out.println("Starting Instruction : " + data.SimpleCurrentInstruction.getOp());
             if(data.SimpleCurrentInstruction.getOp()!="FINISHED_COMPLEX" && data.ComplexCurrentInstructionDone){
                 data.ComplexCurrentInstructionDone = false;
             }
@@ -82,7 +82,7 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
                 }
             }
 
-            System.out.println("Finished Instuction : " + data.SimpleCurrentInstruction.getOp());
+            System.out.println("Finished Instruction : " + data.SimpleCurrentInstruction.getOp());
             data.SimpleCurrentInstructionDone = true;
             if(data.SimpleCurrentInstruction.getOp()=="FINISHED_COMPLEX"){
                 data.ComplexCurrentInstructionDone = true;
