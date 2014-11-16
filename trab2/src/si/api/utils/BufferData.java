@@ -98,6 +98,27 @@ public class BufferData {
         aux[1] = 0;
         return (aux);
     }
+    
+    
+    
+    //give a integer array (X,Z) of an ocuppiedcell
+    //return X=(1-10); Z=(1-4); return (0,0) if empty
+    public int[] nextfreecell(){
+        int[] aux = new int [2];
+        for(int i=0; i<5; i++){
+            for(int n=0; i<10; n++){
+                if(!ocuppiedCells[n][i]){
+                    aux[0] = i+1;
+                    aux[1] = i+2;
+                    return (aux);
+                }
+            }
+        }
+        aux[0] = 0;
+        aux[1] = 0;
+        return (aux);
+    }
+    
 
     public void BusyCell(int x, int z){
         ocuppiedCells[x][z]= true;
