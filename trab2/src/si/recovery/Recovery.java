@@ -1,4 +1,5 @@
 package si.recovery;
+import java.util.Iterator;
 import java.util.concurrent.BlockingQueue;
 import si.api.utils.BufferData;
 import si.api.utils.ComplexInstruction;
@@ -20,8 +21,10 @@ public class Recovery {
     BufferData data;
     String errorType;
     
-    public BlockingQueue<Instruction> Backup;
-    public BlockingQueue<ComplexInstruction> ComplexBackup;
+    private BlockingQueue<Instruction> Backup;
+    private BlockingQueue<ComplexInstruction> ComplexBackup, ComplexBackup2;
+    private ComplexInstruction CplxInst;
+    
   
 
     Recovery(BufferData _data) {
@@ -40,6 +43,10 @@ public class Recovery {
             return false;
         Backup.clear();
         
+        Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
+        
+        
+        
         if(errorType.equals(ERROR1) || errorType.equals(ERROR2)){ 
             Backup.add(new Instruction(0, 1, 0, 0, "GOTO_STATION"));    //mete no get
             Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
@@ -48,23 +55,77 @@ public class Recovery {
         }
         
         if(errorType.equals(ERROR3)){
+                        //super erro popup
         }
         if(errorType.equals(ERROR4)){
+                        //super erro popup
         }
         if(errorType.equals(ERROR5)){
-            if(data.ComplexInstruction.element().getOp().equals("GET_PIECE")){
             
+            while(iteradorCI.hasNext()){
+                CplxInst = iteradorCI.next();
+                
+                if (CplxInst.getOp().equals("GET_PIECE")){
+                    
+                    ComplexBackup2.add(CplxInst);
+                    ComplexBackup2.addAll(ComplexBackup);
+                    ComplexBackup2.addAll(data.ComplexInstruction);
+                    data.ComplexInstruction.addAll(ComplexBackup2);
+                    ComplexBackup.clear();
+                    ComplexBackup2.clear();
+                    return true;
+                }
+                
+                ComplexBackup.add(CplxInst);
             
             }
-            else{
-            
-            
-            }
-            
+            ComplexBackup.addAll(data.ComplexInstruction);
+            data.ComplexInstruction.addAll(ComplexBackup);
+            //super erro popup
+            ComplexBackup.clear();
+            ComplexBackup2.clear();
+            return false;
         }
+        
+        
         if(errorType.equals(ERROR6)){
+            
+            while(iteradorCI.hasNext()){
+                CplxInst = iteradorCI.next();
+                
+                if (CplxInst.getOp().equals("PUT_PIECE")){
+                    
+                    ComplexBackup2.add(CplxInst);
+                    ComplexBackup2.addAll(ComplexBackup);
+                    ComplexBackup2.addAll(data.ComplexInstruction);
+                    data.ComplexInstruction.addAll(ComplexBackup2);
+                    ComplexBackup.clear();
+                    ComplexBackup2.clear();
+                    return true;
+                }
+                
+                ComplexBackup.add(CplxInst);
+            
+            }
+            ComplexBackup.addAll(data.ComplexInstruction);
+            data.ComplexInstruction.addAll(ComplexBackup);
+            //super erro popup
+            ComplexBackup.clear();
+            ComplexBackup2.clear();
+            return false;
         }
+        
+        
         if(errorType.equals(ERROR7)){
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
         
         data.SimpleInstruction.drainTo(Backup);
