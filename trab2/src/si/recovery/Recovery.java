@@ -22,6 +22,7 @@ public class Recovery implements Runnable {
 
     BufferData data;
     int errorType;
+
     public BlockingQueue<Integer> erros;
     
     
@@ -123,8 +124,12 @@ public class Recovery implements Runnable {
         if(errorType==3);
             //super erro popup
             
-        if(errorType==4);
+        if(errorType==4){
+            data.gui.jErrorId.setText("4");
+            data.gui.setVisible(true);
+        }
             //super erro popup
+        
        
         if(errorType==5)
             fixError5();
@@ -146,9 +151,11 @@ public class Recovery implements Runnable {
        
         while(true){
         
-            errorType = erros.poll();
-            checkErrors();
-            
+            while(data.diagnosed && !data.corrected){
+                errorType = data.errorID;
+                data.corrected=true;
+                checkErrors();
+            }
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {

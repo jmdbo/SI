@@ -2,6 +2,7 @@ package si.api.utils;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import si.GUI.PopUp;
 
 /**
  * Created by dd.fernandes on 01/10/2014. This class should be used as the
@@ -43,7 +44,9 @@ public class BufferData {
     
     public boolean emergency;
     public boolean diagnosed;
+    public boolean corrected;
     public int errorID;
+    public PopUp gui;
     /**
      * Custom Code ( END )
      */
@@ -72,6 +75,7 @@ public class BufferData {
         this.emergency = false;
         this.diagnosed = false;
         this.errorID = -1;
+        this.corrected = false;
         
         this.keepUpdates = true;
         new Thread(new BufferUpdater(this)).start();

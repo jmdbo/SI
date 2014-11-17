@@ -14,6 +14,7 @@ import si.diagnoser.Diagnoser;
 import si.dispatcher.DispatcherV2;
 import si.monitor.Monitor;
 import si.planner.PlannerV2;
+import si.recovery.Recovery;
 
 /**
  *
@@ -336,12 +337,15 @@ public class guiONE extends javax.swing.JFrame {
         new Thread(new PlannerV2(data)).start();
         new Thread(new Monitor(data)).start();
         new Thread(new Diagnoser(data)).start();
+        new Thread(new Recovery(data)).start();
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                guiONE gui = new guiONE();
-                gui.setVisible(true);
+                new guiONE().setVisible(true);
+                data.gui = new PopUp();
+                data.gui.setVisible(false);
+                
                 
                 
             }
