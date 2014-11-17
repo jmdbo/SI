@@ -1,60 +1,105 @@
 package si.diagnoser;
+
 import CLIPSJNI.Environment;
-import si.api.utils.*;
+import si.api.utils.BufferData;
 
 /**
  * Created by Aires on 11-11-2014.
  */
-public class Diagnoser {
-
+public class Diagnoser implements Runnable {
 
     public static BufferData bufferData;
-
-    public Diagnoser(BufferData _bd){
-        bufferData=_bd;
-    }
     private static Environment clips;
 
-
-
-    private Diagnoser() { }
-
-    static public void main(String[] args){
-
+    public Diagnoser(BufferData _bd) {
+        this.bufferData = _bd;
         clips = new Environment();
 
-        clips.load("RulesDiagnoser.CLP");
+        clips.load("RulesMonitor.CLP");
         clips.reset();
         System.out.println("get list" + clips.eval("(get-defrule-list)").toString());
-
-
     }
 
-
-
-
-
-    private boolean error_conditions (){
+    private boolean error_conditions() {
 
         //ERRO1
-        if (bufferData.getState(2).getBit(7) == 0)
-            clips.eval("assert PieceInStation false");
-        else clips.eval("assert PieceInStation true");
+        if (bufferData.pieceInStation() == 0) {
+            clips.eval("(assert (PieceInStation (Position false)))");
+        } else if (bufferData.pieceInStation() == 1) {
+            clips.eval("(assert (PieceInStation (Position Left)))");
+        } else if (bufferData.pieceInStation() == 2) {
+            clips.eval("(assert (PieceInStation (Position Right)))");
+        } else if (bufferData.pieceInStation() == 3) {
+            clips.eval("(assert (PieceInStation (Position Right)))");
+            clips.eval("(assert (PieceInStation (Position Left)))");
+        }
 
-        if ((bufferData.posX==0&& bufferData.posZ== 00) || (bufferData.posX== 9 && bufferData.posZ==0) )
-            clips.eval("assert ElevatorAtStation true");
-        else clips.eval("assert ElevatorAtStation false");
-
+        if (bufferData.posZ == 0) {
+            if (bufferData.posX == 0) {
+                clips.eval("(assert (ElevatorAtStation (Position Left)))");
+            } else if (bufferData.posX == 9) {
+                clips.eval("(assert (ElevatorAtStation (Position Right)))");
+            } else {
+                clips.eval("(assert (ElevatorAtStation (Position false)))");
+            }
+        } else {
+            clips.eval("(assert (ElevatorAtStation (Position false)))");
+        }
 
         //ERRO2
         //(PieceInElevator false)
-        if (bufferData.pieceAtLift())
-            clips.eval("assert PieceInElevator true");
-        else clips.eval("assert PieceInElevator false");
+        if (bufferData.pieceAtLift()) {
+            clips.eval("(assert (PieceInElevator (State true)))");
+        } else {
+            clips.eval("(assert (PieceInElevator (State false)))");
+        }
 
-
-
+        //ERRO 4
         return true;
     }
+    
+    int getErro() {
+        try {
+            int TAM =clips.eval("(find-all-facts ((?E Erro)) TRUE)").size();
+            if (TAM != 0) {
+                return Integer.parseInt(clips.eval("(find-all-facts ((?E Erro)) TRUE)").get(0).getFactSlot("id").toString());
+            }
+        } catch (Exception ex) {
+            System.out.println("Erro a ir buscar os erros");
+        }
+        return 0;
+    }
 
+    @Override
+    public void run() {
+        while (true) {
+            String asrt;
+            while (bufferData.emergency) {
+                clips.reset();
+                if (bufferData.ComplexCurrentInstruction != null
+                        && bufferData.SimpleCurrentInstruction != null) {
+                    clips.eval("(assert (Action (complx "
+                            + bufferData.ComplexCurrentInstruction.getOp()
+                            + ") (simpl " + bufferData.SimpleCurrentInstruction.getOp()
+                            + ")))");
+                }
+                error_conditions();
+                clips.run();
+                int erroId = getErro();
+                if(erroId>0){
+                    bufferData.emergency = true;
+                    System.out.print("Erro Diagnosticado.");
+                    System.out.println(erroId);
+                }
+            }
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+            }
+        }
+    }
 }

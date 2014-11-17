@@ -1,65 +1,84 @@
-<<<<<<< HEAD
-(deftemplate Estado
-=======
 (deftemplate Action
 (slot complx (default ?NONE))
 (slot simpl  (default ?NONE))
 )
 
->>>>>>> f2072a8c4380d8b32b3e8206b5b9fb3d1cc864b0
-(deftemplate Position
+(deftemplate Erro
+(slot id (default ?NONE))
+(slot msg (default ?NONE))
+)
+
+(deftemplate PositionXYZ
 (slot x (default ?NONE))
 (slot y (default ?NONE))
 (slot z (default ?NONE))
 )
 
+(deftemplate PieceInStation
+(slot Position (default ?NONE))
+)
+
+(deftemplate ElevatorAtStation
+(slot Position (default ?NONE))
+)
+(deftemplate PieceInElevator
+(slot State (default ?NONE))
+)
 
 (defrule EntryReady_Rule
-    (PieceInStation ?b)
-    (ElevatorAtStation ?a)
-    (SimpleAction LOAD_STATION)
-    (test (eq ?b false))
+    (PieceInStation (Position ?b))
+    (Action (complx ?c) (simpl ?d))
+    (ElevatorAtStation (Position ?a))
+    (test (eq ?b ?a))
+    (test (eq ?c PUT_PIECE))
+    (test (eq ?d AT_STATION))
     (test (or (eq ?a Left) (eq ?a Right)))
-=> (assert (Error)))
+=> (assert (Erro (id 1) (msg Erro))))
 
 
 (defrule EntryLoad_Rule
-    (PieceInElevator ?a)
-    (SimpleAction LOAD_STATION_DONE)
-    (ElevatorAtStation ?b)
-    (test (eq ?a true))
+    (PieceInElevator (State ?a))
+    (Action (complx ?c) (simpl ?d))
+    (ElevatorAtStation (Position ?b))
+    (test (eq ?a false))
     (test (or (eq ?b Left) (eq ?b Right)))
-=> (assert (Error)))
+    (test (eq ?c PUT_PIECE))
+    (test (eq ?d STATION_LOAD_DONE))
+=> (assert (Erro (id 2) (msg Erro))))
 
 (defrule OccupiedStation_Rule
-    (PieceInStation ?b)
-    (ElevatorAtStation ?a)
-    (SimpleAction PUT_STATION)
+    (PieceInStation (Position ?b))
+    (ElevatorAtStation (Position ?a))
+    (Action (complx ?c)(simpl ?d))
     (test (eq ?a ?b))
-=> (assert (Error)))
+    (test (neq ?a false))
+    (test (eq ?c GET_PIECE))
+    (test (eq ?d STATION_PUT))
+=> (assert (Erro (id 3) (msg Erro))))
 
 (defrule NoPiece_Rule
-    (PieceInElevator false)
-    (SimpleAction PUT_CELL)
-    (Position (x ?a) (y ?c) (z ?b))
-    (test (eq ?c Middle))
-    (test (neq ?a -1))
-    (test (neq ?b -1))
-=> (assert (Error)))
+    (PieceInElevator (State false))
+    (Action (complx PUT_PIECE) (simpl CELL_PUT))    
+=> (assert (Erro (id 4) (msg Erro))))
 
 (defrule StorageFull_Rule
-    (StorageFull true)
-    (ComplexAction STORE_PIECE)
-   => (assert (Error)))
+    (StorageFull ?c)
+    (Action (complx ?b)(simpl ?a))
+    (test (eq ?b PUT_PIECE))
+    (test (eq ?c true))
+=> (assert (Erro (id 5) (msg Erro))))
 
 (defrule StorageEmpty_Rule
-    (StorageEmpty true)
-    (ComplexAction GET_PIECE)
-=> (assert (Error)))
+    (StorageEmpty ?a)
+    (Action (complx ?b) (simpl ?c))
+    (test (eq ?b GET_PIECE))
+    (test (eq ?a true))
+=> (assert (Erro (id 6) (msg Erro))))
 
 (defrule LostPieceOnRetrieval_Rule
-    (SimpleAction GET_CELL_DONE)
-    (PieceInElevator false)
-=> (assert (Error)))
-
+    (Action (complx ?a)(simpl ?b))
+    (PieceInElevator (State ?c))
+    (test (eq ?b GET_CELL_DONE))
+    (test (eq ?c false))
+=> (assert (Erro (id 7) (msg Erro))))
 

@@ -10,7 +10,9 @@ import java.util.logging.Logger;
 import si.api.utils.BufferData;
 import si.api.utils.BufferDataV2;
 import si.api.utils.ComplexInstruction;
+import si.diagnoser.Diagnoser;
 import si.dispatcher.DispatcherV2;
+import si.monitor.Monitor;
 import si.planner.PlannerV2;
 
 /**
@@ -332,7 +334,8 @@ public class guiONE extends javax.swing.JFrame {
         }
         new Thread(new DispatcherV2(data)).start();
         new Thread(new PlannerV2(data)).start();
-        //new Thread(new Monitor(bd)).start();
+        new Thread(new Monitor(data)).start();
+        new Thread(new Diagnoser(data)).start();
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

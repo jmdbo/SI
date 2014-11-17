@@ -1,4 +1,5 @@
 package si.monitor;
+
 import CLIPSJNI.Environment;
 import si.api.utils.BufferData;
 
@@ -6,9 +7,9 @@ import si.api.utils.BufferData;
  * Created by Aires on 11-11-2014.
  */
 public class Monitor implements Runnable {
+
     public static BufferData bufferData;
     private static Environment clips;
-
 
     public Monitor(BufferData _bd) {
         this.bufferData = _bd;
@@ -22,82 +23,83 @@ public class Monitor implements Runnable {
     private boolean error_conditions() {
 
         //ERRO1
-        if (bufferData.pieceInStation() == 0)
-            clips.eval("(assert (PieceInStation false))");
-        else clips.eval("(assert (PieceInStation true))");
-
-        if (bufferData.posZ == 0){
-            if(bufferData.posX == 0) {
-                clips.eval("(assert (ElevatorAtStation Left))");
-            }
-            else if( bufferData.posX==9){
-                clips.eval("(assert (ElevatorAtStation Right))");
-            }
-            else clips.eval("(assert (ElevatorAtStation false))");
-        } else{
-            clips.eval("(assert (ElevatorAtStation false))");
+        if (bufferData.pieceInStation() == 0) {
+            clips.eval("(assert (PieceInStation (Position false)))");
+        } else if (bufferData.pieceInStation() == 1) {
+            clips.eval("(assert (PieceInStation (Position Left)))");
+        } else if (bufferData.pieceInStation() == 2) {
+            clips.eval("(assert (PieceInStation (Position Right)))");
+        } else if (bufferData.pieceInStation() == 3) {
+            clips.eval("(assert (PieceInStation (Position Right)))");
+            clips.eval("(assert (PieceInStation (Position Left)))");
         }
 
+        if (bufferData.posZ == 0) {
+            if (bufferData.posX == 0) {
+                clips.eval("(assert (ElevatorAtStation (Position Left)))");
+            } else if (bufferData.posX == 9) {
+                clips.eval("(assert (ElevatorAtStation (Position Right)))");
+            } else {
+                clips.eval("(assert (ElevatorAtStation (Position false)))");
+            }
+        } else {
+            clips.eval("(assert (ElevatorAtStation (Position false)))");
+        }
 
         //ERRO2
         //(PieceInElevator false)
-        if (bufferData.pieceAtLift())
-            clips.eval("(assert (PieceInElevator true))");
-        else clips.eval("(assert (PieceInElevator false))");
-
+        if (bufferData.pieceAtLift()) {
+            clips.eval("(assert (PieceInElevator (State true)))");
+        } else {
+            clips.eval("(assert (PieceInElevator (State false)))");
+        }
 
         //ERRO 4
-        String Asrt;
-        Asrt = "(assert (Position (x ";
-        Asrt+= bufferData.posX +") (y ";
-        Asrt+= bufferData.posY +") (z ";
-        Asrt+= bufferData.posZ +")))";
-        clips.eval(Asrt);
-
         return true;
+    }
+    
+    int getErro() {
+        try {
+            int TAM =clips.eval("(find-all-facts ((?E Erro)) TRUE)").size();
+            if (TAM != 0) {
+                return Integer.parseInt(clips.eval("(find-all-facts ((?E Erro)) TRUE)").get(0).getFactSlot("id").toString());
+            }
+        } catch (Exception ex) {
+            System.out.println("Erro a ir buscar os erros");
+        }
+        return 0;
     }
 
     @Override
     public void run() {
-        while(true){
+        while (true) {
             String asrt;
-            while(!bufferData.emergency){
+            while (!bufferData.emergency) {
                 clips.reset();
-                if(bufferData.ComplexCurrentInstruction!=null) {
-                    asrt = "(assert (ComplexAction ";
-                    asrt += bufferData.ComplexCurrentInstruction.getOp();
-                    if (bufferData.ComplexCurrentInstructionDone) {
-                        asrt += "_DONE";
-                    }
-                    asrt += "))";
-                    System.out.println("Sending to CLIPS: " + asrt );
-                    clips.eval(asrt);
+                if (bufferData.ComplexCurrentInstruction != null
+                        && bufferData.SimpleCurrentInstruction != null) {
+                    clips.eval("(assert (Action (complx "
+                            + bufferData.ComplexCurrentInstruction.getOp()
+                            + ") (simpl " + bufferData.SimpleCurrentInstruction.getOp()
+                            + ")))");
                 }
-                if(bufferData.SimpleCurrentInstruction!=null){
-                    asrt = "(assert (SimpleAction " + bufferData.SimpleCurrentInstruction.getOp();
-                    if (bufferData.SimpleCurrentInstructionDone) {
-                        asrt += "_DONE";
-                    }
-                    asrt += "))";
-                    System.out.println("Sending to CLIPS: " + asrt);
-                    clips.assertString(asrt);
-                    error_conditions();
-                }
-                try {
-                    Thread.sleep(4000);
-                }catch (Exception e){
-
-                }
-                try {
-                    Thread.sleep(4000);
-                }catch (Exception e){
-
+                error_conditions();
+                clips.run();
+                int erroId = getErro();
+                if(erroId>0){
+                    bufferData.emergency = true;
+                    System.out.print("Erro detectado. Paragem de emergência ");
+                    System.out.println(erroId);
                 }
             }
-
-
-
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+            }
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+            }
         }
-
     }
 }

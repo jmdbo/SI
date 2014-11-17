@@ -81,6 +81,8 @@ public class Planner {
             data.SimpleInstruction.add(new Instruction(x, -1, z, 0, "GOTO_STATION"));
             data.SimpleInstruction.add(new Instruction(-1, 2, -1,-1, "CELL_GET"));
             data.SimpleInstruction.add(new Instruction(-1, -1, -1, 1, "CELL_GET"));
+            data.SimpleInstruction.add(new Instruction(-1, -1, -1, -1, "CELL_GET_DONE"));
+
         }
 
         // Goto the required position
