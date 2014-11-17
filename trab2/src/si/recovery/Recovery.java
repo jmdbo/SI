@@ -1,6 +1,8 @@
 package si.recovery;
 import java.util.Iterator;
 import java.util.concurrent.BlockingQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import si.api.utils.BufferData;
 import si.api.utils.ComplexInstruction;
 import si.api.utils.Instruction;
@@ -10,17 +12,17 @@ import si.api.utils.Instruction;
  */
 public class Recovery implements Runnable {
 
-    private static final String ERROR1 ="EntryReadyError";
-    private static final String ERROR2 ="EntryLoadError";
-    private static final String ERROR3 ="OccupiedStationError";
-    private static final String ERROR4 ="NoPieceError";
-    private static final String ERROR5 ="StorageFullError";
-    private static final String ERROR6 ="StorageEmptyError";
-    private static final String ERROR7 ="LostPieceOnRetrievalError";
+    private static final int ERROR1 =1;
+    private static final int ERROR2 =2;
+    private static final int ERROR3 =3;
+    private static final int ERROR4 =4;
+    private static final int ERROR5 =5;
+    private static final int ERROR6 =6;
+    private static final int ERROR7 =7;
 
     BufferData data;
-    String errorType;
-    public BlockingQueue<String>erros;
+    int errorType;
+    public BlockingQueue<Integer> erros;
     
     
     private BlockingQueue<Instruction> Backup;
@@ -29,13 +31,9 @@ public class Recovery implements Runnable {
     
     public Recovery(BufferData _data) {
         data = _data;
-        errorType = "";
+        errorType = 0;
     }
 
-    public void setNewError(String errorType){
-        this.errorType = errorType;
-    }
-     
     private boolean fixError1and2(){
         Backup.add(new Instruction(0, 1, 0, 0, "GOTO_STATION"));    //mete no get
         Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
@@ -116,29 +114,29 @@ public class Recovery implements Runnable {
     
     
     private boolean checkErrors (){
-        if(errorType.equals(""))
+        if(errorType==0)
             return false;
         
-        if(errorType.equals(ERROR1) || errorType.equals(ERROR2))
+        if(errorType==1 || errorType==2)
             fixError1and2();
         
-        if(errorType.equals(ERROR3));
+        if(errorType==3);
             //super erro popup
             
-        if(errorType.equals(ERROR4));
+        if(errorType==4);
             //super erro popup
        
-        if(errorType.equals(ERROR5))
+        if(errorType==5)
             fixError5();
         
-        if(errorType.equals(ERROR6))
+        if(errorType==6)
             fixError6();
             
         //procurar outra cell ocupada e retirar caixa
-        if(errorType.equals(ERROR7))
+        if(errorType==7)
             fixError7();
         
-        errorType = "";
+        errorType = 0;
         return true;
         
     }
@@ -146,15 +144,16 @@ public class Recovery implements Runnable {
     @Override
     public void run() {
        
+        while(true){
         
-        
+            errorType = erros.poll();
+            checkErrors();
             
-        
-        
-        
-        
-    
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Recovery.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
-
-   
 }
