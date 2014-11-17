@@ -5,6 +5,13 @@
  */
 package si.GUI;
 
+
+import si.api.utils.BufferData;
+import si.api.utils.BufferDataV2;
+import si.dispatcher.DispatcherV2;
+import si.planner.PlannerV2;
+import si.recovery.Recovery;
+
 /**
  *
  * @author Aires
@@ -108,14 +115,32 @@ public class test_for_recovery extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
+        data = new BufferDataV2();
+        
+        new Thread(new DispatcherV2(data)).start();
+        new Thread(new PlannerV2(data)).start();
+        
+        //new Thread(new Monitor(bd)).start();
+        
+        
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new test_for_recovery().setVisible(true);
             }
         });
+        
+        
+        
+        
+        
+        
+        
     }
-
+    private static BufferData data;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;

@@ -95,8 +95,6 @@ public class Monitor implements Runnable {
                 }
             }
 
-
-
         }
 
     }
