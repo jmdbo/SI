@@ -1,4 +1,5 @@
 package si.recovery;
+import java.util.Iterator;
 import java.util.concurrent.BlockingQueue;
 import si.api.utils.BufferData;
 import si.api.utils.ComplexInstruction;
@@ -7,7 +8,7 @@ import si.api.utils.Instruction;
 /**
  * Created by Aires on 11-11-2014.
  */
-public class Recovery {
+public class Recovery implements Runnable {
 
     private static String ERROR1 ="EntryReadyError";
     private static String ERROR2 ="EntryLoadError";
@@ -20,10 +21,10 @@ public class Recovery {
     BufferData data;
     String errorType;
     
-    public BlockingQueue<Instruction> Backup;
-    public BlockingQueue<ComplexInstruction> ComplexBackup;
-  
-
+    private BlockingQueue<Instruction> Backup;
+    private BlockingQueue<ComplexInstruction> ComplexBackup, ComplexBackup2;
+    private ComplexInstruction CplxInst;
+    
     Recovery(BufferData _data) {
         data = _data;
         errorType = null;
@@ -32,78 +33,117 @@ public class Recovery {
     void setNewError(String errorType){
         this.errorType = errorType;
     }
-    
-    
-    
-    private boolean fixError (){
-        if(errorType.equals(null))
-            return false;
-        Backup.clear();
-        
-        if(errorType.equals(ERROR1) || errorType.equals(ERROR2)){ 
-            Backup.add(new Instruction(0, 1, 0, 0, "GOTO_STATION"));    //mete no get
-            Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
-            Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
-            Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
-        }
-        
-        if(errorType.equals(ERROR3)){
-        }
-        if(errorType.equals(ERROR4)){
-        }
-        if(errorType.equals(ERROR5)){
-            if(data.ComplexInstruction.element().getOp().equals("GET_PIECE")){
-            
-            
-            }
-            else{
-            
-            
-            }
-            
-        }
-        if(errorType.equals(ERROR6)){
-        }
-        if(errorType.equals(ERROR7)){
-        }
-        
+     
+    private boolean fixError1and2(){
+        Backup.add(new Instruction(0, 1, 0, 0, "GOTO_STATION"));    //mete no get
+        Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
+        Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
+        Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
+
         data.SimpleInstruction.drainTo(Backup);
         Backup.drainTo(data.SimpleInstruction);
-        errorType = null;
-        
-        data.ComplexInstruction.drainTo(ComplexBackup);
-        ComplexBackup.drainTo(data.ComplexInstruction);
-        
-        
         return true;
-        
     }
     
- /*
-    void Error_recovery(){
+    //armazem cheio, procurar complexInstrution 
+    //de remover e passala para primeiro
+    private boolean fixError5(){
+        Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
+        while(iteradorCI.hasNext()){
+            CplxInst = iteradorCI.next();
 
-        String ERROR;
+            if (CplxInst.getOp().equals("GET_PIECE")){
 
-        //devolve o primeiro erro que encontra
-        ERROR = clips.eval("find-fact ((?e error)) ERROR").toString();
-
-        if(ERROR.equals(ERROR1)){
-            //RELOAD INTO LIFT
-
+                ComplexBackup2.add(CplxInst);
+                ComplexBackup2.addAll(ComplexBackup);
+                ComplexBackup2.addAll(data.ComplexInstruction);
+                data.ComplexInstruction.addAll(ComplexBackup2);
+                ComplexBackup.clear();
+                ComplexBackup2.clear();
+                return true;
+            }
+            ComplexBackup.add(CplxInst);
         }
+        ComplexBackup.addAll(data.ComplexInstruction);
+        data.ComplexInstruction.addAll(ComplexBackup);
+        //super erro popup
+        ComplexBackup.clear();
+        ComplexBackup2.clear();
+        return false;
+    }
+    
+    //armazem vazio, procurar complexInstrution 
+    //de colocar e passala para primeiro
+    private boolean fixError6(){
+        Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
+        while(iteradorCI.hasNext()){
+            CplxInst = iteradorCI.next();
+            if (CplxInst.getOp().equals("PUT_PIECE")){
+                ComplexBackup2.add(CplxInst);
+                ComplexBackup2.addAll(ComplexBackup);
+                ComplexBackup2.addAll(data.ComplexInstruction);
+                data.ComplexInstruction.addAll(ComplexBackup2);
+                ComplexBackup.clear();
+                ComplexBackup2.clear();
+                return true;
+            }
+            ComplexBackup.add(CplxInst);
+        }
+        ComplexBackup.addAll(data.ComplexInstruction);
+        data.ComplexInstruction.addAll(ComplexBackup);
+        //super erro popup
+        ComplexBackup.clear();
+        ComplexBackup2.clear();
+        return false;
+    }
+    
+    //procurar outra cell ocupada e retirar caixa
+    private boolean fixError7(){
+        int[] aux = new int [2];
+        aux = data.ocuppiedcell();
+        if(aux[0]==0 && aux[1]==0){
+            //error warehouse completly empty
+            return false;
+        }
+        ComplexBackup.add(new ComplexInstruction(aux[0],aux[1],"PUT_PIECE", 0, 0));
+        ComplexBackup.addAll(data.ComplexInstruction);
+        data.ComplexInstruction.addAll(ComplexBackup);
+        ComplexBackup.clear();
+        return true;
+    }
+    
+    
+    private boolean checkErrors (){
+        if(errorType.equals(null))
+            return false;
+        
+        if(errorType.equals(ERROR1) || errorType.equals(ERROR2))
+            fixError1and2();
+        
+        if(errorType.equals(ERROR3));
+            //super erro popup
+            
+        if(errorType.equals(ERROR4));
+            //super erro popup
+       
+        if(errorType.equals(ERROR5))
+            fixError5();
+        
+        if(errorType.equals(ERROR6))
+            fixError6();
+            
+        //procurar outra cell ocupada e retirar caixa
+        if(errorType.equals(ERROR7))
+            fixError7();
+        
+        errorType = null;
+        return false;
+        
+    }
 
-        if(ERROR.equals(ERROR2));
-
-        if(ERROR.equals(ERROR3));
-
-        if(ERROR.equals(ERROR4));//IRRECOPERÁVEL
-
-        if(ERROR.equals(ERROR5));
-
-        if(ERROR.equals(ERROR6));
-
-        if(ERROR.equals(ERROR7));
-
-    }*/
-
+    @Override
+    public void run() {
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
