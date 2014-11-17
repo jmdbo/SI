@@ -74,7 +74,7 @@ public class Diagnoser implements Runnable {
     public void run() {
         while (true) {
             String asrt;
-            while (bufferData.emergency) {
+            while (bufferData.emergency && !bufferData.diagnosed) {
                 clips.reset();
                 if (bufferData.ComplexCurrentInstruction != null
                         && bufferData.SimpleCurrentInstruction != null) {
@@ -90,6 +90,8 @@ public class Diagnoser implements Runnable {
                     bufferData.emergency = true;
                     System.out.print("Erro Diagnosticado.");
                     System.out.println(erroId);
+                    bufferData.diagnosed=true;
+                    bufferData.errorID=erroId;
                 }
             }
             try {

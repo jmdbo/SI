@@ -42,6 +42,8 @@ public class BufferData {
     
     
     public boolean emergency;
+    public boolean diagnosed;
+    public int errorID;
     /**
      * Custom Code ( END )
      */
@@ -59,8 +61,8 @@ public class BufferData {
         //array witch give you the occupied cells (X,Z)
         ocuppiedCells = new boolean [10][5];
         for(int i=0; i<5; i++){
-            for(int n=0; i<10; n++){
-                ocuppiedCells[i][n] = false;
+            for(int n=0; n<10; n++){
+                ocuppiedCells[n][i] = false;
             }
         }
         
@@ -68,6 +70,8 @@ public class BufferData {
         this.ComplexInstruction = new ArrayBlockingQueue<>(100);
         this.SimpleInstruction = new ArrayBlockingQueue<>(100);
         this.emergency = false;
+        this.diagnosed = false;
+        this.errorID = -1;
         
         this.keepUpdates = true;
         new Thread(new BufferUpdater(this)).start();
