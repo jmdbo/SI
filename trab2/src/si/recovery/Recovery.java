@@ -10,27 +10,29 @@ import si.api.utils.Instruction;
  */
 public class Recovery implements Runnable {
 
-    private static String ERROR1 ="EntryReadyError";
-    private static String ERROR2 ="EntryLoadError";
-    private static String ERROR3 ="OccupiedStationError";
-    private static String ERROR4 ="NoPieceError";
-    private static String ERROR5 ="StorageFullError";
-    private static String ERROR6 ="StorageEmptyError";
-    private static String ERROR7 ="LostPieceOnRetrievalError";
+    private static final String ERROR1 ="EntryReadyError";
+    private static final String ERROR2 ="EntryLoadError";
+    private static final String ERROR3 ="OccupiedStationError";
+    private static final String ERROR4 ="NoPieceError";
+    private static final String ERROR5 ="StorageFullError";
+    private static final String ERROR6 ="StorageEmptyError";
+    private static final String ERROR7 ="LostPieceOnRetrievalError";
 
     BufferData data;
     String errorType;
+    public BlockingQueue<String>erros;
+    
     
     private BlockingQueue<Instruction> Backup;
     private BlockingQueue<ComplexInstruction> ComplexBackup, ComplexBackup2;
     private ComplexInstruction CplxInst;
     
-    Recovery(BufferData _data) {
+    public Recovery(BufferData _data) {
         data = _data;
-        errorType = null;
+        errorType = "";
     }
 
-    void setNewError(String errorType){
+    public void setNewError(String errorType){
         this.errorType = errorType;
     }
      
@@ -114,7 +116,7 @@ public class Recovery implements Runnable {
     
     
     private boolean checkErrors (){
-        if(errorType.equals(null))
+        if(errorType.equals(""))
             return false;
         
         if(errorType.equals(ERROR1) || errorType.equals(ERROR2))
@@ -136,14 +138,23 @@ public class Recovery implements Runnable {
         if(errorType.equals(ERROR7))
             fixError7();
         
-        errorType = null;
-        return false;
+        errorType = "";
+        return true;
         
     }
 
     @Override
     public void run() {
+       
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+            
+        
+        
+        
+        
+    
     }
+
+   
 }
