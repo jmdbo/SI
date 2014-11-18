@@ -75,8 +75,7 @@
 
 (defrule LostPieceOnRetrieval_Rule
     (Action (complx ?a)(simpl ?b))
-    (PieceInElevator (State ?c))
-    (test (eq ?b GET_CELL_DONE))
-    (test (eq ?c false))
+    (PieceInElevator (State false))
+    (test (eq ?b CELL_GET_DONE))
 => (assert (Erro (id 7) (msg Erro))))
 

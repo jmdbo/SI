@@ -84,6 +84,7 @@ public class Monitor implements Runnable {
                             + ")))");
                 }
                 error_conditions();
+                
                 clips.run();
                 int erroId = getErro();
                 if(erroId>0){
