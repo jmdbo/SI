@@ -29,7 +29,7 @@
     (PieceInStation (Position ?b))
     (Action (complx ?c) (simpl ?d))
     (ElevatorAtStation (Position ?a))
-    (test (eq ?b ?a))
+    (test (neq ?b ?a))
     (test (eq ?c PUT_PIECE))
     (test (eq ?d AT_STATION))
     (test (or (eq ?a Left) (eq ?a Right)))

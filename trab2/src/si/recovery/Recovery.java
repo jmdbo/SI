@@ -40,7 +40,7 @@ public class Recovery implements Runnable {
     }
 
     private boolean fixError1and2(){
-        Backup.add(new Instruction(0, 1, 0, 0, "GOTO_STATION"));    //mete no get
+        Backup.add(new Instruction(0, 1, 0, 0, "AT_STATION"));    //mete no get
         Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
         Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
         Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
