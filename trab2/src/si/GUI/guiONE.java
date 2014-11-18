@@ -368,7 +368,7 @@ public class guiONE extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new guiONE().setVisible(true);
-                data.gui = new PopUp();
+                data.gui = new PopUp(data);
                 data.gui.setVisible(false);
                 
                 
