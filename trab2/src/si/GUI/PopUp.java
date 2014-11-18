@@ -5,6 +5,8 @@
  */
 package si.GUI;
 
+import si.api.utils.BufferData;
+
 /**
  *
  * @author João Barata
@@ -16,6 +18,7 @@ public class PopUp extends javax.swing.JFrame {
      */
     public PopUp() {
         initComponents();
+        this.setResizable(false); 
     }
 
     /**
