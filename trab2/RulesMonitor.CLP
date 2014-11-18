@@ -39,9 +39,7 @@
 (defrule EntryLoad_Rule
     (PieceInElevator (State ?a))
     (Action (complx ?c) (simpl ?d))
-    (ElevatorAtStation (Position ?b))
     (test (eq ?a false))
-    (test (or (eq ?b Left) (eq ?b Right)))
     (test (eq ?c PUT_PIECE))
     (test (eq ?d STATION_LOAD_DONE))
 => (assert (Erro (id 2) (msg Erro))))
@@ -58,7 +56,7 @@
 
 (defrule NoPiece_Rule
     (PieceInElevator (State false))
-    (Action (complx PUT_PIECE) (simpl CELL_PUT))    
+    (Action (complx PUT_PIECE) (simpl AT_CELL))    
 => (assert (Erro (id 4) (msg Erro))))
 
 (defrule StorageFull_Rule

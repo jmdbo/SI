@@ -1,5 +1,6 @@
 package si.recovery;
 import java.util.Iterator;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +34,9 @@ public class Recovery implements Runnable {
     public Recovery(BufferData _data) {
         data = _data;
         errorType = 0;
+        Backup = new ArrayBlockingQueue<>(100);
+        ComplexBackup = new ArrayBlockingQueue<>(100);
+        ComplexBackup2 = new ArrayBlockingQueue<>(100);
     }
 
     private boolean fixError1and2(){
@@ -40,9 +44,13 @@ public class Recovery implements Runnable {
         Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
         Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
         Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
+        Backup.add(new Instruction(-1, -1, -1, -1, "STATION_LOAD_DONE")); 
 
         data.SimpleInstruction.drainTo(Backup);
         Backup.drainTo(data.SimpleInstruction);
+        data.emergency = false;
+        data.diagnosed = false;
+        data.corrected = false;
         return true;
     }
     
@@ -110,6 +118,9 @@ public class Recovery implements Runnable {
         ComplexBackup.addAll(data.ComplexInstruction);
         data.ComplexInstruction.addAll(ComplexBackup);
         ComplexBackup.clear();
+        data.emergency = false;
+        data.diagnosed = false;
+        data.corrected = false;
         return true;
     }
     
