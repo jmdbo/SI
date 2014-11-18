@@ -80,7 +80,7 @@ public class Planner {
         if (!data.pieceAtLift()) {
             data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "STATION_MID"));
             data.SimpleInstruction.add(new Instruction(x, -1, z, 0, "GOTO_STATION"));
-            data.SimpleInstruction.add(new Instruction(-1, 2, -1,-1, "CELL_GET"));
+            data.SimpleInstruction.add(new Instruction(-1, 0, -1,-1, "CELL_GET"));
             data.SimpleInstruction.add(new Instruction(-1, -1, -1, 1, "CELL_GET"));
             data.SimpleInstruction.add(new Instruction(-1, -1, -1, -1, "CELL_GET_DONE"));
 
@@ -88,7 +88,7 @@ public class Planner {
 
         // Goto the required position
         data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "STATION_MID"));
-        data.SimpleInstruction.add(new Instruction(x, -1, z, 1, "GOTO_XZ"));
+        data.SimpleInstruction.add(new Instruction(x_dest, -1, z_dest, 1, "GOTO_XZ"));
 
         // Put the piece in place
         data.SimpleInstruction.add(new Instruction(-1, 0, -1,-1, "STATION_INSIDE"));

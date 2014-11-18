@@ -237,8 +237,8 @@ public class guiONE extends javax.swing.JFrame {
         jLabel9.setVisible(false);
         jLabel10.setVisible(false);
         try {
-            x = Integer.parseInt(jX1Field.getText());
-            z = Integer.parseInt(jZ1Field.getText());
+            x = Integer.parseInt(jX1Field.getText())-1;
+            z = ((Integer.parseInt(jZ1Field.getText()))-1)*2;
             
             if(jPutButton.isSelected()){
                 if(jLeftStationButton.isSelected())
@@ -253,8 +253,8 @@ public class guiONE extends javax.swing.JFrame {
                     data.ComplexInstruction.add(new ComplexInstruction(x,z,"GET_PIECE", 9, 0));                    
             }
             if (jSwitchButton.isSelected()) {
-                x_dest = Integer.parseInt(jX2Field.getText());
-                z_dest = Integer.parseInt(jZ2Field.getText());
+                x_dest = Integer.parseInt(jX2Field.getText())-1;
+                z_dest = (Integer.parseInt(jZ2Field.getText())*2)-1;
                 data.ComplexInstruction.add(new ComplexInstruction(x,z,"SWITCH_PIECE", x_dest, z_dest));
             }
             
