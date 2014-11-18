@@ -92,7 +92,13 @@ public class Recovery implements Runnable {
         }
         ComplexBackup.addAll(data.ComplexInstruction);
         data.ComplexInstruction.addAll(ComplexBackup);
-        //super erro popup
+        
+        //super POPUP
+        data.gui.jErrorId.setText("Armazem Cheio");
+        data.gui.setVisible(true);
+        
+        
+        
         ComplexBackup.clear();
         ComplexBackup2.clear();
         return false;
@@ -118,6 +124,11 @@ public class Recovery implements Runnable {
         ComplexBackup.addAll(data.ComplexInstruction);
         data.ComplexInstruction.addAll(ComplexBackup);
         //super erro popup
+        //super POPUP
+        data.gui.jErrorId.setText("Armazem Vazio");
+        data.gui.setVisible(true);
+        
+        
         ComplexBackup.clear();
         ComplexBackup2.clear();
         return false;
@@ -129,6 +140,9 @@ public class Recovery implements Runnable {
         aux = data.ocuppiedcell();
         if(aux[0]==0 && aux[1]==0){
             //error warehouse completly empty
+            //super POPUP
+            data.gui.jErrorId.setText("Armazem Vazio");
+            data.gui.setVisible(true);
             return false;
         }
         ComplexBackup.add(new ComplexInstruction(aux[0],aux[1],"PUT_PIECE", 0, 0));
@@ -154,7 +168,7 @@ public class Recovery implements Runnable {
             //super erro popup
             
         if(errorType==4){
-            data.gui.jErrorId.setText("4");
+            data.gui.jErrorId.setText("Ausência de peça no Elevador");
             data.gui.setVisible(true);
         }
             //super erro popup
