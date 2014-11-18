@@ -38,9 +38,26 @@ public class Recovery implements Runnable {
         ComplexBackup = new ArrayBlockingQueue<>(100);
         ComplexBackup2 = new ArrayBlockingQueue<>(100);
     }
+    
+    private boolean fixError1(){
+        while(!pieceAtElevatorEstation()){
+            try{
+                Thread.sleep(1000);
+                
+            }catch (Exception e){
+                
+            }
+        }
+        data.emergency = false;
+        data.diagnosed = false;
+        data.corrected = false;
+        return true;
+    }
 
-    private boolean fixError1and2(){
-        Backup.add(new Instruction(0, 1, 0, 0, "AT_STATION"));    //mete no get
+    private boolean fixError2(){
+
+        Backup.add(new Instruction(-1, 1, -1, -1, "AT_STATION"));    //mete no get
+        
         Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
         Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
         Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
@@ -128,9 +145,10 @@ public class Recovery implements Runnable {
     private boolean checkErrors (){
         if(errorType==0)
             return false;
-        
-        if(errorType==1 || errorType==2)
-            fixError1and2();
+        if(errorType==1)
+            fixError1();
+        if(errorType==2)
+            fixError2();
         
         if(errorType==3);
             //super erro popup
@@ -173,5 +191,16 @@ public class Recovery implements Runnable {
                 Logger.getLogger(Recovery.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    private boolean pieceAtElevatorEstation() {
+       if(data.pieceInStation()==3 && data.posZ == 0 && (data.posX==0 || data.posX==9))
+           return true;
+       if(data.pieceInStation()==1 && data.posZ == 0 && data.posX==0)
+           return true;
+       if(data.pieceInStation()==2 && data.posZ == 0 && data.posX==9)
+           return true;
+       
+       return false;
     }
 }
