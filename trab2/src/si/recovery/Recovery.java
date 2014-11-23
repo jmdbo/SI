@@ -145,7 +145,7 @@ public class Recovery implements Runnable {
             data.gui.setVisible(true);
             return false;
         }
-        ComplexBackup.add(new ComplexInstruction(aux[0],aux[1],"PUT_PIECE", 0, 0));
+        ComplexBackup.add(new ComplexInstruction(aux[0],aux[1],"GET_PIECE", 0, 0));
         ComplexBackup.addAll(data.ComplexInstruction);
         data.ComplexInstruction.addAll(ComplexBackup);
         ComplexBackup.clear();
