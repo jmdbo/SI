@@ -127,6 +127,13 @@ public class BufferData {
         return (aux);
     }
     
+    
+    public boolean cellisbusy (int x, int z){
+        
+        return ocuppiedCells[x][z];
+    
+    }
+    
 
     public void BusyCell(int x, int z){
         ocuppiedCells[x][z]= true;
