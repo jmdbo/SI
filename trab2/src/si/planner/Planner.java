@@ -19,7 +19,6 @@ public class Planner {
     }
 
     public void putPieceAt(int x, int z, int x_orig,int z_orig) {
-
         // Get Piece From The Station if Missing
         if (!data.pieceAtLift()) {
             data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "ELEVATOR_MIDDLE"));

@@ -49,6 +49,11 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
             if (data.emergency) {
                 axis_xz(0, 0);
                 axis_y(0);
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 continue;
             }
 

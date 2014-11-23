@@ -40,17 +40,19 @@ public class Recovery implements Runnable {
     }
     
     private boolean fixError1(){
+        System.out.println("fixError1");
         while(!pieceAtElevatorEstation()){
             try{
                 Thread.sleep(1000);
                 
             }catch (Exception e){
-                
+                e.printStackTrace();
             }
         }
         data.emergency = false;
         data.diagnosed = false;
         data.corrected = false;
+        System.out.println(data.SimpleCurrentInstruction.getOp());
         return true;
     }
 
@@ -208,6 +210,7 @@ public class Recovery implements Runnable {
     }
 
     private boolean pieceAtElevatorEstation() {
+        System.out.println("posX:" + data.posX + " posZ:" +data.posZ + " Piece in Station :"+data.pieceInStation() );
        if(data.pieceInStation()==3 && data.posZ == 0 && (data.posX==0 || data.posX==9))
            return true;
        if(data.pieceInStation()==1 && data.posZ == 0 && data.posX==0)

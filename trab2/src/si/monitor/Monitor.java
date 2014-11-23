@@ -97,10 +97,6 @@ public class Monitor implements Runnable {
                 Thread.sleep(100);
             } catch (Exception e) {
             }
-            try {
-                Thread.sleep(100);
-            } catch (Exception e) {
-            }
         }
     }
 }
