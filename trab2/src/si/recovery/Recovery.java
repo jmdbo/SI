@@ -175,9 +175,11 @@ public class Recovery implements Runnable {
         if(errorType==2)
             fixError2();
         
-        if(errorType==3);
-            //super erro popup
-            
+        if(errorType==3){
+            data.gui.jErrorId.setText("Estação de saída ocupada");
+            data.gui.setVisible(true);
+        }
+        
         if(errorType==4){
             data.gui.jErrorId.setText("Ausência de peça no Elevador");
             data.gui.setVisible(true);
