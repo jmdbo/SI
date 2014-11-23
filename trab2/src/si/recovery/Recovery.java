@@ -171,9 +171,9 @@ public class Recovery implements Runnable {
         data.SimpleInstruction.clear();
         data.ComplexCurrentInstructionDone = true;
         
-        System.out.println("NOVA INSTRUÇÃO DO GET_PIECA PARA X Z" + (aux[0]-1) + (aux[1]-1) );
+        System.out.println("NOVA INSTRUÇÃO DO GET_PIECE PARA X Z" + (aux[0]) + (aux[1]) );
         
-        ComplexBackup.add(new ComplexInstruction(aux[0]-1,aux[1]-1,"GET_PIECE", 0, 0));
+        ComplexBackup.add(new ComplexInstruction(aux[0],aux[1],"GET_PIECE", 0, 0));
         data.ComplexInstruction.drainTo(ComplexBackup);
         ComplexBackup.drainTo(data.ComplexInstruction);
         
