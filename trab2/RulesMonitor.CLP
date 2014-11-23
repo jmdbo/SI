@@ -63,6 +63,7 @@
     (StorageFull ?c)
     (Action (complx ?b)(simpl ?a))
     (test (eq ?b PUT_PIECE))
+    (test (eq ?a PUT_PIECE_BEGIN))
     (test (eq ?c true))
 => (assert (Erro (id 5) (msg Erro))))
 
@@ -70,6 +71,7 @@
     (StorageEmpty ?a)
     (Action (complx ?b) (simpl ?c))
     (test (eq ?b GET_PIECE))
+    (test (eq ?c GET_PIECE_BEGIN))
     (test (eq ?a true))
 => (assert (Erro (id 6) (msg Erro))))
 
