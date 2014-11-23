@@ -56,8 +56,16 @@ public class Monitor implements Runnable {
 
         //ERRO 4
         int freeCell[] = bufferData.nextfreecell();
+        int fullCell[] = bufferData.ocuppiedcell();
         if(freeCell[0]==0 && freeCell[1]==0){
-            //clips.eval("");
+            clips.eval("(assert (StorageFull true))");
+        }else{
+            clips.eval("(assert (StorageFull false))");
+        }
+        if(fullCell[0]==0 && fullCell[1]==0){
+            clips.eval("(assert (StorageEmpty true))");
+        }else{
+            clips.eval("(assert (StorageEmpty false))");
         }
         return true;
     }
