@@ -58,12 +58,21 @@ public class Recovery implements Runnable {
 
     private boolean fixError2(){
 
-        Backup.add(new Instruction(-1, 1, -1, -1, "AT_STATION"));    //mete no get
         
-        Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
-        Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
-        Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
+        Backup.add(new Instruction(-1, 1, -1, -1, "ELEVATOR_MIDDLE")); 
+        Backup.add(new Instruction(-1, -1, -1, 0, "GOTO_STATION"));     //mete no get
+        Backup.add(new Instruction(-1, 2, -1,-1, "ELEVATOR_INSIDE"));   //mete o Y
+        Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));      // levanta 
+        Backup.add(new Instruction(-1, 1, -1, -1, "ELEVATOR_MID"));     //tira Y
         Backup.add(new Instruction(-1, -1, -1, -1, "STATION_LOAD_DONE")); 
+        
+        
+        
+        //Backup.add(new Instruction(-1, 1, -1, -1, "AT_STATION"));    //mete no get
+        //Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
+        //Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
+        //Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
+        //Backup.add(new Instruction(-1, -1, -1, -1, "STATION_LOAD_DONE")); 
 
         data.SimpleInstruction.drainTo(Backup);
         Backup.drainTo(data.SimpleInstruction);
