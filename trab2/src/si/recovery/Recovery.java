@@ -158,7 +158,7 @@ public class Recovery implements Runnable {
     
     //procurar outra cell ocupada e retirar caixa
     private boolean fixError7(){
-        int[] aux = new int [2];
+        int[] aux;
         aux = data.ocuppiedcell();
         if(aux[0]==0 && aux[1]==0){
             //error warehouse completly empty
@@ -169,17 +169,23 @@ public class Recovery implements Runnable {
         }
         
         data.SimpleInstruction.clear();
-        data.ComplexCurrentInstructionDone = true;
         
-        System.out.println("NOVA INSTRUÇÃO DO GET_PIECE PARA X Z" + (aux[0]) + (aux[1]) );
+        int x_dest = data.ComplexCurrentInstruction.getX_dest();
+        int z_dest = data.ComplexCurrentInstruction.getZ_dest();
+        int z = (aux[1]-1)*2;
+        int x = aux[0]-1;
         
-        ComplexBackup.add(new ComplexInstruction(aux[0],aux[1],"GET_PIECE", 0, 0));
+        System.out.println("NOVA INSTRUÇÃO DO GET_PIECE PARA X Z" + (aux[0])+" "+ (aux[1]) );
+        
+        ComplexBackup.add(new ComplexInstruction(x,z,"GET_PIECE", x_dest, z_dest));
         data.ComplexInstruction.drainTo(ComplexBackup);
         ComplexBackup.drainTo(data.ComplexInstruction);
+        data.SimpleCurrentInstruction = new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX");        
         
         data.emergency = false;
         data.diagnosed = false;
         data.corrected = false;
+        data.ComplexCurrentInstructionDone = true;
         
         return true;
     }
