@@ -80,23 +80,20 @@ public class Recovery implements Runnable {
         Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
         while(iteradorCI.hasNext()){
             CplxInst = iteradorCI.next();
-
-            if (CplxInst.getOp().equals("GET_PIECE")){
-
-                ComplexBackup2.add(CplxInst);
-                ComplexBackup2.add(data.ComplexCurrentInstruction);
-                ComplexBackup2.addAll(ComplexBackup);
-                ComplexBackup2.addAll(data.ComplexInstruction);
-                data.ComplexInstruction.addAll(ComplexBackup2);
-                ComplexBackup.clear();
-                ComplexBackup2.clear();
+            if (CplxInst.getOp().equals("PUT_PIECE")){
                 
-               //clear blocking queue 
+                ComplexBackup.add(CplxInst);
+                iteradorCI.remove();
+                ComplexBackup.add(data.ComplexCurrentInstruction);
+                data.ComplexInstruction.drainTo(ComplexBackup);
+                ComplexBackup.drainTo(data.ComplexInstruction);
+                ComplexBackup.clear();
+                
+                //clear blocking queue 
                 data.SimpleInstruction.clear();
                 data.ComplexCurrentInstructionDone = true;
                 return true;
             }
-            ComplexBackup.add(CplxInst);
         }
         ComplexBackup.addAll(data.ComplexInstruction);
         data.ComplexInstruction.addAll(ComplexBackup);
@@ -118,33 +115,31 @@ public class Recovery implements Runnable {
         Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
         while(iteradorCI.hasNext()){
             CplxInst = iteradorCI.next();
-            if (CplxInst.getOp().equals("PUT_PIECE")){
-                ComplexBackup2.add(CplxInst);
-                ComplexBackup2.add(data.ComplexCurrentInstruction);
-                ComplexBackup2.addAll(ComplexBackup);
-                ComplexBackup2.addAll(data.ComplexInstruction);
-                data.ComplexInstruction.addAll(ComplexBackup2);
+            if (CplxInst.getOp().equals("GET_PIECE")){
+                
+                ComplexBackup.add(CplxInst);
+                iteradorCI.remove();
+                ComplexBackup.add(data.ComplexCurrentInstruction);
+                data.ComplexInstruction.drainTo(ComplexBackup);
+                ComplexBackup.drainTo(data.ComplexInstruction);
                 ComplexBackup.clear();
-                ComplexBackup2.clear();
                 
                 //clear blocking queue 
                 data.SimpleInstruction.clear();
                 data.ComplexCurrentInstructionDone = true;
                 return true;
             }
-            
-            ComplexBackup.add(CplxInst);
         }
-        ComplexBackup.addAll(data.ComplexInstruction);
-        data.ComplexInstruction.addAll(ComplexBackup);
+        
         //super erro popup
         //super POPUP
         data.gui.jErrorId.setText("Armazem Vazio");
         data.gui.setVisible(true);
         
         
-        ComplexBackup.clear();
-        ComplexBackup2.clear();
+        //clear blocking queue 
+        data.SimpleInstruction.clear();
+        data.ComplexCurrentInstructionDone = true;
         return false;
     }
     
