@@ -130,17 +130,17 @@ public class BufferData {
     
     public boolean cellisbusy (int x, int z){
         
-        return ocuppiedCells[x][z];
+        return ocuppiedCells[x-1][z-1];
     
     }
     
 
     public void BusyCell(int x, int z){
-        ocuppiedCells[x][z]= true;
+        ocuppiedCells[x-1][z-1]= true;
     }
     
     public void FreeCell(int x, int z){
-        ocuppiedCells[x][z]= false;
+        ocuppiedCells[x-1][z-1]= false;
     }
     
     
