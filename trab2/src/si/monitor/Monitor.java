@@ -55,6 +55,10 @@ public class Monitor implements Runnable {
         }
 
         //ERRO 4
+        int freeCell[] = bufferData.nextfreecell();
+        if(freeCell[0]==0 && freeCell[1]==0){
+            //clips.eval("");
+        }
         return true;
     }
     
