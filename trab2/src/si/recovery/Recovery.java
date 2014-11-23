@@ -80,7 +80,7 @@ public class Recovery implements Runnable {
         Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
         while(iteradorCI.hasNext()){
             CplxInst = iteradorCI.next();
-            if (CplxInst.getOp().equals("PUT_PIECE")){
+            if (CplxInst.getOp().equals("GET_PIECE")){
                 
                 ComplexBackup.add(CplxInst);
                 iteradorCI.remove();
@@ -94,11 +94,14 @@ public class Recovery implements Runnable {
                 data.ComplexCurrentInstructionDone = true;
                 return true;
             }
+            CplxInst = iteradorCI.next();
         }
         ComplexBackup.addAll(data.ComplexInstruction);
         data.ComplexInstruction.addAll(ComplexBackup);
         
         //super POPUP
+        
+        data.ComplexCurrentInstructionDone=true;
         data.gui.jErrorId.setText("Armazem Cheio");
         data.gui.setVisible(true);
         
@@ -114,9 +117,7 @@ public class Recovery implements Runnable {
     private boolean fixError6(){
         Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
         while(iteradorCI.hasNext()){
-            CplxInst = iteradorCI.next();
-            if (CplxInst.getOp().equals("GET_PIECE")){
-                
+            if (CplxInst.getOp().equals("PUT_PIECE")){
                 ComplexBackup.add(CplxInst);
                 iteradorCI.remove();
                 ComplexBackup.add(data.ComplexCurrentInstruction);
@@ -129,17 +130,21 @@ public class Recovery implements Runnable {
                 data.ComplexCurrentInstructionDone = true;
                 return true;
             }
+            CplxInst = iteradorCI.next();
         }
         
         //super erro popup
         //super POPUP
+        
+        System.out.println("ENTROU NO ERRO 6");
         data.gui.jErrorId.setText("Armazem Vazio");
         data.gui.setVisible(true);
         
         
         //clear blocking queue 
-        data.SimpleInstruction.clear();
         data.ComplexCurrentInstructionDone = true;
+        data.ComplexInstruction.poll();
+        data.SimpleInstruction.clear();
         return false;
     }
     
