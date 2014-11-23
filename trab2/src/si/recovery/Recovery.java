@@ -28,7 +28,7 @@ public class Recovery implements Runnable {
     
     
     private BlockingQueue<Instruction> Backup;
-    private BlockingQueue<ComplexInstruction> ComplexBackup, ComplexBackup2;
+    private BlockingQueue<ComplexInstruction> ComplexBackup;
     private ComplexInstruction CplxInst;
     
     public Recovery(BufferData _data) {
@@ -36,7 +36,6 @@ public class Recovery implements Runnable {
         errorType = 0;
         Backup = new ArrayBlockingQueue<>(100);
         ComplexBackup = new ArrayBlockingQueue<>(100);
-        ComplexBackup2 = new ArrayBlockingQueue<>(100);
     }
     
     private boolean fixError1(){
@@ -77,11 +76,11 @@ public class Recovery implements Runnable {
     //armazem cheio, procurar complexInstrution 
     //de remover e passala para primeiro
     private boolean fixError5(){
+        boolean solved = false;
         Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
-        while(iteradorCI.hasNext()){
+        while(iteradorCI.hasNext() && !solved){
             CplxInst = iteradorCI.next();
             if (CplxInst.getOp().equals("GET_PIECE")){
-                
                 ComplexBackup.add(CplxInst);
                 iteradorCI.remove();
                 ComplexBackup.add(data.ComplexCurrentInstruction);
@@ -90,25 +89,27 @@ public class Recovery implements Runnable {
                 ComplexBackup.clear();
                 
                 //clear blocking queue 
+                data.ComplexCurrentInstruction = CplxInst;
+                data.SimpleCurrentInstruction = new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX");
                 data.SimpleInstruction.clear();
+                data.emergency = false;
+                data.diagnosed = false;
+                data.corrected = false;
                 data.ComplexCurrentInstructionDone = true;
+                solved = true;
                 return true;
             }
-            CplxInst = iteradorCI.next();
         }
-        ComplexBackup.addAll(data.ComplexInstruction);
-        data.ComplexInstruction.addAll(ComplexBackup);
+         if(solved)
+            return true;
         
         //super POPUP
         
         data.ComplexCurrentInstructionDone=true;
         data.gui.jErrorId.setText("Armazem Cheio");
         data.gui.setVisible(true);
-        
-        
-        
-        ComplexBackup.clear();
-        ComplexBackup2.clear();
+        data.SimpleInstruction.clear();
+
         return false;
     }
     
@@ -116,7 +117,8 @@ public class Recovery implements Runnable {
     //de colocar e passala para primeiro
     private boolean fixError6(){
         Iterator<ComplexInstruction> iteradorCI = data.ComplexInstruction.iterator();
-        while(iteradorCI.hasNext()){
+        boolean solved = false;
+        while(iteradorCI.hasNext() && !solved){
             CplxInst = iteradorCI.next();
             if (CplxInst.getOp().equals("PUT_PIECE")){
                 ComplexBackup.add(CplxInst);
@@ -127,12 +129,19 @@ public class Recovery implements Runnable {
                 ComplexBackup.clear();
                 
                 //clear blocking queue 
+                data.ComplexCurrentInstruction = CplxInst;
+                data.SimpleCurrentInstruction = new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX");
                 data.SimpleInstruction.clear();
+                data.emergency = false;
+                data.diagnosed = false;
+                data.corrected = false;
                 data.ComplexCurrentInstructionDone = true;
+                solved = true;
                 return true;
             }
         }
-        
+        if(solved)
+            return true;
         //super erro popup
         //super POPUP
         
