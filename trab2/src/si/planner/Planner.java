@@ -61,10 +61,13 @@ public class Planner {
         data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "STATION_MID"));
         
         data.SimpleInstruction.add(new Instruction(-1, -1, -1, -1, "CELL_GET_DONE"));
-        data.SimpleInstruction.add(new Instruction(x_dest, -1, z_dest, 1, "GOTO_STATION"));
+        data.SimpleInstruction.add(new Instruction(x_dest, -1, z_dest, 0, "GOTO_STATION"));
+        data.SimpleInstruction.add(new Instruction(-1, -1, -1, -1, "STATION_PUT_BEGIN"));
+        data.SimpleInstruction.add(new Instruction(-1, -1, -1, 1, "STATION_PUT_BEGIN"));
         data.SimpleInstruction.add(new Instruction(-1, 2, -1, -1, "ELEVATOR_OUTSIDE"));
         data.SimpleInstruction.add(new Instruction(-1, -1, -1, 0, "STATION_PUT"));
         data.SimpleInstruction.add(new Instruction(-1, 1, -1, -1, "ELEVATOR_MIDDLE"));
+        data.SimpleInstruction.add(new Instruction(-1, -1, -1, -1, "STATION_PUT_DONE"));
         
         data.SimpleInstruction.add(new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX"));
         

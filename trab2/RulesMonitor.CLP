@@ -51,7 +51,7 @@
     (test (eq ?a ?b))
     (test (neq ?a false))
     (test (eq ?c GET_PIECE))
-    (test (eq ?d STATION_PUT))
+    (test (eq ?d STATION_PUT_BEGIN))
 => (assert (Erro (id 3) (msg Erro))))
 
 (defrule NoPiece_Rule
