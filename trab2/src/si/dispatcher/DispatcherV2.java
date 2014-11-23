@@ -103,6 +103,18 @@ public class DispatcherV2 extends Dispatcher implements Runnable {
 
             System.out.println("Finished Instruction : " + data.SimpleCurrentInstruction.getOp());
             data.SimpleCurrentInstructionDone = true;
+            if(data.SimpleCurrentInstruction.getOp().equals("CELL_PUT_DONE")){
+                 int posX = data.posX+1;
+                int posZ = (data.posZ/2)+1;
+                data.BusyCell(posX, posZ);                
+                System.out.println("Ocupied Cell PosX: "+posX+" PosZ: "+posZ);
+            }
+            if(data.SimpleCurrentInstruction.getOp().equals("CELL_GET_DONE")){
+                int posX = data.posX+1;
+                int posZ = (data.posZ/2)+1;
+                data.FreeCell(posX, posZ);
+                System.out.println("Free Cell PosX: "+posX+" PosZ: "+posZ);
+            }
             if(data.SimpleCurrentInstruction.getOp().equals("FINISHED_COMPLEX")){
                 data.ComplexCurrentInstructionDone = true;
                 data.ComplexOldInstruction = data.ComplexCurrentInstruction;
