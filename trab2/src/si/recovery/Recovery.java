@@ -66,14 +66,6 @@ public class Recovery implements Runnable {
         Backup.add(new Instruction(-1, 1, -1, -1, "ELEVATOR_MID"));     //tira Y
         Backup.add(new Instruction(-1, -1, -1, -1, "STATION_LOAD_DONE")); 
         
-        
-        
-        //Backup.add(new Instruction(-1, 1, -1, -1, "AT_STATION"));    //mete no get
-        //Backup.add(new Instruction(-1, 2, -1,-1, "STATION_GET"));   //mete o Y
-        //Backup.add(new Instruction(-1, -1, -1, 1, "STATION_GET"));  // levanta put
-        //Backup.add(new Instruction(-1, 1, -1, -1, "STATION_GET"));  //tira Y
-        //Backup.add(new Instruction(-1, -1, -1, -1, "STATION_LOAD_DONE")); 
-
         data.SimpleInstruction.drainTo(Backup);
         Backup.drainTo(data.SimpleInstruction);
         data.emergency = false;
@@ -92,11 +84,16 @@ public class Recovery implements Runnable {
             if (CplxInst.getOp().equals("GET_PIECE")){
 
                 ComplexBackup2.add(CplxInst);
+                ComplexBackup2.add(data.ComplexCurrentInstruction);
                 ComplexBackup2.addAll(ComplexBackup);
                 ComplexBackup2.addAll(data.ComplexInstruction);
                 data.ComplexInstruction.addAll(ComplexBackup2);
                 ComplexBackup.clear();
                 ComplexBackup2.clear();
+                
+               //clear blocking queue 
+                data.SimpleInstruction.clear();
+                data.ComplexCurrentInstructionDone = true;
                 return true;
             }
             ComplexBackup.add(CplxInst);
@@ -123,13 +120,19 @@ public class Recovery implements Runnable {
             CplxInst = iteradorCI.next();
             if (CplxInst.getOp().equals("PUT_PIECE")){
                 ComplexBackup2.add(CplxInst);
+                ComplexBackup2.add(data.ComplexCurrentInstruction);
                 ComplexBackup2.addAll(ComplexBackup);
                 ComplexBackup2.addAll(data.ComplexInstruction);
                 data.ComplexInstruction.addAll(ComplexBackup2);
                 ComplexBackup.clear();
                 ComplexBackup2.clear();
+                
+                //clear blocking queue 
+                data.SimpleInstruction.clear();
+                data.ComplexCurrentInstructionDone = true;
                 return true;
             }
+            
             ComplexBackup.add(CplxInst);
         }
         ComplexBackup.addAll(data.ComplexInstruction);
