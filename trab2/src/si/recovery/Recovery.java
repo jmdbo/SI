@@ -39,7 +39,6 @@ public class Recovery implements Runnable {
     }
     
     private boolean fixError1(){
-        System.out.println("fixError1");
         while(!pieceAtElevatorEstation()){
             try{
                 Thread.sleep(1000);
@@ -206,6 +205,8 @@ public class Recovery implements Runnable {
         
         if(errorType==4){
             data.gui.jErrorId.setText("Ausência de peça no Elevador");
+            data.SimpleInstruction.clear();
+            data.SimpleInstruction.add(new Instruction(-1, -1, -1,-1, "FINISHED_COMPLEX"));
             data.gui.setVisible(true);
         }
             //super erro popup

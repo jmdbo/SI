@@ -50,7 +50,8 @@ public class PopUp extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/si/error.png"))); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jButton1.setText("OK");
+        jButton1.setText("Resume");
+        jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
