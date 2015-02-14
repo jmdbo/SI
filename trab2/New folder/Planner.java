@@ -14,9 +14,13 @@ public class Planner {
         data = _data;
     }
 
+    /**
+     * @param asd
+     */
     public void updateInstructions() {
         System.out.println("NotYet Implemented");
     }
+
     /**
      * isto faz bla bla bla
      * <img src="http://www.ipsantarem.pt/wp-content/uploads/2013/06/logo-fct.png">
@@ -25,7 +29,7 @@ public class Planner {
      * @param x_orig enfim
      * @param z_orig tou farto de discussoes
      */
-    public void putPieceAt(int x, int z, int x_orig,int z_orig) {
+	 public void putPieceAt(int x, int z, int x_orig,int z_orig) {
         // Get Piece From The Station if Missing
         data.SimpleInstruction.add(new Instruction(-1,-1,-1,-1, "PUT_PIECE_BEGIN"));
         if (!data.pieceAtLift()) {            

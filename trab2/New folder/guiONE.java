@@ -370,11 +370,20 @@ public class guiONE extends javax.swing.JFrame {
                 new guiONE().setVisible(true);
                 data.gui = new PopUp(data);
                 data.gui.setVisible(false);
+                
+                
+                
             }
         });
+        
+        
+        
     }
     
+    
     private boolean conditions_to_process(){
+        
+        
         if (
             //cell 1 with put and get from station;
             (((Integer.parseInt(jZ1Field.getText())) <= 5 && (Integer.parseInt(jZ1Field.getText()) >= 1)) && 

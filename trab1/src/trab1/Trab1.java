@@ -33,12 +33,12 @@ public class Trab1 {
         new Thread(d).start();
 
 
-        //d.queue.add(new Command("trab1.GotoPosition", 0, 0, ISGETTING));
-        //d.queue.add(new Command("trab1.PutGet", ISTRAY, ISGETTING));
+        d.queue.add(new Command("trab1.GotoPosition", 0, 0, ISGETTING));
+        d.queue.add(new Command("trab1.PutGet", ISTRAY, ISGETTING));
 
 
-        //d.queue.add(new Command("trab1.GotoPosition",4, 4, ISPUTTING));
-        //d.queue.add(new Command("trab1.PutGet", ISCELL, ISPUTTING));
+        d.queue.add(new Command("trab1.GotoPosition",4, 4, ISPUTTING));
+        d.queue.add(new Command("trab1.PutGet", ISCELL, ISPUTTING));
 
 
     }
