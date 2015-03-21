@@ -1,3 +1,5 @@
 *.class
 /trab2/dist/
 /trab2/build/
+/trab1/build/
+/trab1/dist/
